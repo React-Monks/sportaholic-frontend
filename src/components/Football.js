@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class Footer extends Component {
+ class Football extends Component {
     render() {
         return (
             <div>
-
+                
             </div>
         )
     }
 }
 
-export default Footer
+export default Football
