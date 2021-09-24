@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 
-class Footer extends Component {
-
- 
+class Tennis extends Component {
     render() {
         return (
             <div>
-
+                
             </div>
         )
     }
 }
 
-export default Footer
+export default Tennis
