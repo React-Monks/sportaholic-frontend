@@ -13,26 +13,26 @@ class HomePage extends Component {
                 <span className='homePageSpan'>
                     <h3>Football</h3>
                     <a href='/Football'>
-                        <img src={footballImg} className='homepageImgs' /></a>
+                        <img src={footballImg} className='homepageImgs' alt=''/></a>
                 </span>
 
                 <span className='homePageSpan'>
                     <h3>Tennis</h3>
                     <a href='/tennis'>
-                        <img src={tennisImg} alt='tennis' className='homepageImgs' />
+                        <img src={tennisImg} alt='tennis' className='homepageImgs'  />
                     </a>
                 </span >
 
                 <span className='homePageSpan'>
                     <h3>Basketball</h3>
                     <a href='/basketball'>
-                        <img src={basketballImg} className='homepageImgs' /></a>
+                        <img src={basketballImg} className='homepageImgs' alt=''/></a>
                 </span>
 
                 <span className='homePageSpan'>
                     <h3>UFC</h3>
                     <a href='/UFC'>
-                        <img src={UFCImg} className='homepageImgs' />
+                        <img src={UFCImg} className='homepageImgs'alt='' />
                     </a>
                 </span>
             </div>
@@ -40,7 +40,7 @@ class HomePage extends Component {
             <span id='fitness'>
                     <h3 style={{marginLeft : '45%'}}>Fitness</h3>
                     <a href='/fitness'>
-                        <img src={fitness} className='fitness' />
+                        <img src={fitness} className='fitness' alt='' />
                     </a>
                 </span>
             </div>
