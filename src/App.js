@@ -17,20 +17,6 @@ import UFC from './components/UFC';
 import Tennis from './components/Tennis';
 
 class App extends Component {
- 
-
- 
-
-
-
-
-
-
-
-
-
-
-
 
   render() {
     console.log(this.props.auth0.isAuthenticated);
@@ -40,7 +26,7 @@ class App extends Component {
       <Router>
         <Switch>
           {this.props.auth0.isAuthenticated ?
-            (<Route exact path='/Home'>
+            (<Route exact path='/'>
               <HomePage />
             </Route>) : (
               <Route path='/'>
