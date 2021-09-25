@@ -1,50 +1,52 @@
-import React, { Component } from 'react'
-import tennisImg from './img/tennisnyy-myach-tennis-ball.jpg'
-import footballImg from './img/wp3616722 (1).png'
-import basketballImg from './img/36f75d87668f0a3fe0e5ebff7e4e4364.jpg'
-import UFCImg from './img/images.png'
+import React, { Component } from 'react';
+import tennisImg from './img/tennisnyy-myach-tennis-ball.jpg';
+import footballImg from './img/wp3616722 (1).png';
+import basketballImg from './img/36f75d87668f0a3fe0e5ebff7e4e4364.jpg';
+import UFCImg from './img/images.png';
 import fitness from './img/istockphoto-1276373630-1024x1024.jpg';
+import { Card, } from 'react-bootstrap';
 
 class HomePage extends Component {
     render() {
         return (<>
-        <h3 style={{marginLeft : '45%'}}>Sports</h3>
-            <div style={{marginLeft : '7%'}}>
+                <h3 style={{ marginLeft: '45%' }}>Sports</h3>
+                
                 <span className='homePageSpan'>
-                    <h3>Football</h3>
-                    <a href='/Football'>
-                        <img src={footballImg} className='homepageImgs' alt=''/></a>
-                </span>
+                <Card style={{ width: '18rem' ,margin: '30%'}}>
+                <Card.Title>Football</Card.Title>
+                <Card.Link href="/Football"><Card.Img variant="top" src={footballImg} className='homepageImgs'/></Card.Link>
+            </Card>
+            </span>
 
-                <span className='homePageSpan'>
-                    <h3>Tennis</h3>
-                    <a href='/tennis'>
-                        <img src={tennisImg} alt='tennis' className='homepageImgs'  />
-                    </a>
-                </span >
+            <span className='homePageSpan'>
+            <Card style={{ width: '18rem' ,margin: '30%'}}>
+                <Card.Title>Tennis</Card.Title>
+                <Card.Link href="/Football"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
+            </Card>
+            </span>
 
-                <span className='homePageSpan'>
-                    <h3>Basketball</h3>
-                    <a href='/basketball'>
-                        <img src={basketballImg} className='homepageImgs' alt=''/></a>
-                </span>
+            <span className='homePageSpan'>
+            <Card style={{ width: '18rem' ,margin: '30%'}}>
+                <Card.Title>Basketball</Card.Title>
+                <Card.Link href="/Football"><Card.Img variant="top" src={basketballImg}className='homepageImgs' /></Card.Link>
+            </Card>
+            </span>
 
-                <span className='homePageSpan'>
-                    <h3>UFC</h3>
-                    <a href='/UFC'>
-                        <img src={UFCImg} className='homepageImgs'alt='' />
-                    </a>
-                </span>
-            </div>
+            <span className='homePageSpan'>
+            <Card style={{width: '18rem' , margin: '30%' }}>
+                <Card.Title>UFC</Card.Title>
+                <Card.Link href="/Football"><Card.Img variant="top" src={UFCImg} className='homepageImgs'/></Card.Link>
+            </Card>
+            </span>
             <div>
-            <span id='fitness'>
-                    <h3 style={{marginLeft : '45%'}}>Fitness</h3>
+                <span id='fitness'>
+                    <h3 style={{ marginLeft: '45%' }}>Fitness</h3>
                     <a href='/fitness'>
                         <img src={fitness} className='fitness' alt='' />
                     </a>
                 </span>
             </div>
-            </>
+        </>
         )
     }
 }

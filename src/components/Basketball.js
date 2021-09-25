@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import BasketForm from './forms/BasketForm';
 class Basketball extends Component {
     constructor(props) {
         super(props);
@@ -61,7 +60,7 @@ class Basketball extends Component {
                     <input type='date' />
                     <input type='submit' />
                 </form>
-                <BasketForm/>
+                
             </div>
         )
     }
