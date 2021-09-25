@@ -30,7 +30,7 @@ class Football extends Component {
   handleFootballLive = async () => {
     let config = {
       method: "GET",
-      url: "https://v3.football.api-sports.io/fixtures?league=39&season=2021",
+      url: "https://v3.football.api-sports.io/fixtures?league=2&season=2021",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
         "x-rapidapi-key": "d0798b7e9de42b91613cb47fd3da6c53",
@@ -48,8 +48,8 @@ class Football extends Component {
     return (
       <>
         <Button
-          onClick={(e) => {
-            this.handleFootballLive(e);
+          onClick={() => {
+            this.handleFootballLive();
           }}
         >
           click football's Lives
