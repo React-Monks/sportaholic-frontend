@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, NavItem } from 'react-bootstrap';
-import { Link, BrowserRouter as Router, } from "react-router-dom";
+import {  BrowserRouter as Router, } from "react-router-dom";
 import LogoutButton from './LogoutButton';
 
 class Header extends Component {

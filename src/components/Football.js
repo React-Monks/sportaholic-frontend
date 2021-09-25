@@ -30,10 +30,10 @@ class Football extends Component {
   handleFootballLive = async () => {
     let config = {
       method: "GET",
-      url: "https://v3.football.api-sports.io/fixtures?league=39&season=2021",
+      url: "https://v3.football.api-sports.io/fixtures?league=2&season=2021",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d0798b7e9de42b91613cb47fd3da6c53",
+        "x-rapidapi-key": "2b63c8ca56e9092df2679e87787e12b3",
       },
     };
     await axios(config).then((res) => {
