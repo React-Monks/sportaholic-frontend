@@ -1,7 +1,7 @@
 
 .homepageImgs {
-  width: 80%;
-  height: 200px;
+  height: 200px ; 
+  background-size: cover;
 }
 .homePageSpan{
   display: inline-block;
@@ -14,3 +14,11 @@
   display: inline-block;
   margin: 15%;
 }
+.table td, th {
+  text-align: center;
+  
+  } 
+  .table {
+    margin: auto;
+    width: 70% !important; 
+ }

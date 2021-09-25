@@ -34,7 +34,7 @@ class App extends Component {
               </Route>
             )
           }
-          <Route path='/Football'>
+          <Route exact path='/Football'>
             <Football />
           </Route>
 
