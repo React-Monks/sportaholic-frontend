@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import FootballCards from "./FootballCards";
 import FootballTable from "./Table/FootballTable";
+import {  Button } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 
 class Football extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class Football extends Component {
       dataLives: [],
       leagueID: 0,
       date: '',
+
     };
   }
   //   handlefootballOne = async (e) => {
@@ -29,6 +32,7 @@ class Football extends Component {
   //       this.setState({
   //         data: res.data.response,
   //       });
+
   //     });
   //   };
 
@@ -54,12 +58,14 @@ class Football extends Component {
       url: `https://v3.football.api-sports.io/fixtures?league=${this.state.leagueID}&season=2021&date=${this.state.date}`,
       headers: {
         "x-rapidapi-key": "4dac19a89c8f0784ef509bdbda44cf5a",
+
       },
     };
     await axios(config).then((res) => {
       this.setState({
         dataLives: res.data.response,
       });
+
     });
   };
 
@@ -79,6 +85,7 @@ class Football extends Component {
             {/* </Route>
           </Switch>
         </Router> */}
+
 
 
         {/* {this.state.data.map((i) => {
