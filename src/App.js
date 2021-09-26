@@ -13,7 +13,7 @@ import Login from './components/Login';
 import './App.css';
 import Football from './components/Football';
 import Teams from './components/Teams';
-
+import Players from './components/Players';
 class App extends Component {
 
   render() {
@@ -39,14 +39,14 @@ class App extends Component {
           <Route path='/teams'>
             <Teams/>
           </Route>
-{/* 
-          <Route path='/UFC'>
+
+          {/* <Route path='/UFC'>
             <UFC />
-          </Route>
-          
-          <Route path='/tennis'>
-            <Tennis />
           </Route> */}
+          
+          <Route path='/players'>
+            <Players />
+          </Route> 
 
         </Switch>
       </Router>
