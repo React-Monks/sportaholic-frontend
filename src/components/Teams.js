@@ -69,7 +69,7 @@ class Teams extends Component {
 
             <Table striped bordered hover variant="dark">
            
-                <thead>
+                {/* <thead>
                     <tr>
                         <th>Date</th>
                         <th></th>
@@ -78,15 +78,13 @@ class Teams extends Component {
 
                         <th>Score</th>
                     </tr>
-                </thead>
+                </thead> */}
                 {this.state.dataTeams.map((i) => {
                     return (
                         <>
                             <tbody>
                                 <tr>
-                                    <td>{i.team.country}</td>
-                                    <td>{i.team.founded}</td>
-                                    <td>
+                                <td>
                                         {" "}
                                         <img
                                             //   className="d-block w-100"
@@ -99,6 +97,10 @@ class Teams extends Component {
                                     </td>
                                     <td>{i.team.name}</td>
 
+                                    <td>{i.team.country}</td>
+                                    <td>{i.team.founded}</td>
+                                
+
                                     <td>{i.venue.capacity}</td>
                                     <td>{i.venue.city}</td>
                                     <td> {" "}
@@ -110,7 +112,6 @@ class Teams extends Component {
                                             height="90"
                                         /></td>
                                     <td>{i.venue.name}</td>
-                                    <td>{i.venue.surface}</td>
 
                                 </tr>
                             </tbody>
