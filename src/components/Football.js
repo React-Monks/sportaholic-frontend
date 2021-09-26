@@ -33,7 +33,7 @@ class Football extends Component {
       url: "https://v3.football.api-sports.io/fixtures?league=2&season=2021",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d0798b7e9de42b91613cb47fd3da6c53",
+        "x-rapidapi-key": "4dac19a89c8f0784ef509bdbda44cf5a",
       },
     };
     await axios(config).then((res) => {
