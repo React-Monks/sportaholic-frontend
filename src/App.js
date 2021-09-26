@@ -12,9 +12,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Login from './components/Login';
 import './App.css';
 import Football from './components/Football';
-import Basketball from './components/Basketball';
-import UFC from './components/UFC';
-import Tennis from './components/Tennis';
+import Teams from './components/Teams';
 
 class App extends Component {
 
@@ -38,17 +36,17 @@ class App extends Component {
             <Football />
           </Route>
 
-          <Route path='/basketball'>
-            <Basketball />
+          <Route path='/teams'>
+            <Teams/>
           </Route>
-
+{/* 
           <Route path='/UFC'>
             <UFC />
           </Route>
           
           <Route path='/tennis'>
             <Tennis />
-          </Route>
+          </Route> */}
 
         </Switch>
       </Router>

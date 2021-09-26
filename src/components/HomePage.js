@@ -13,29 +13,29 @@ class HomePage extends Component {
                 
                 <span className='homePageSpan'>
                 <Card style={{ width: '18rem' ,margin: '30%'}}>
-                <Card.Title>Football</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={footballImg} className='homepageImgs'/></Card.Link>
+                <Card.Title>Legues</Card.Title>
+                <Card.Link href="/legues"><Card.Img variant="top" src={footballImg} className='homepageImgs'/></Card.Link>
             </Card>
             </span>
 
             <span className='homePageSpan'>
             <Card style={{ width: '18rem' ,margin: '30%'}}>
-                <Card.Title>Tennis</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
+                <Card.Title>Teams</Card.Title>
+                <Card.Link href="/teams"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
             </Card>
             </span>
 
             <span className='homePageSpan'>
             <Card style={{ width: '18rem' ,margin: '30%'}}>
-                <Card.Title>Basketball</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={basketballImg}className='homepageImgs' /></Card.Link>
+                <Card.Title>Players</Card.Title>
+                <Card.Link href="/players"><Card.Img variant="top" src={basketballImg}className='homepageImgs' /></Card.Link>
             </Card>
             </span>
 
             <span className='homePageSpan'>
             <Card style={{width: '18rem' , margin: '30%' }}>
-                <Card.Title>UFC</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={UFCImg} className='homepageImgs'/></Card.Link>
+                <Card.Title>Seasons</Card.Title>
+                <Card.Link href="/"><Card.Img variant="top" src={UFCImg} className='homepageImgs'/></Card.Link>
             </Card>
             </span>
             <div>

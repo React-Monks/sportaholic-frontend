@@ -12,7 +12,7 @@ class FootballTable extends Component {
             </Form>
             
                  <Table striped bordered hover variant="dark">
-          {(this.props.leagueID == 0) ? '' : (
+          {(this.props.leagueID === 0) ? '' : (
 
 
           <thead>

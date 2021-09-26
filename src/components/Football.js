@@ -57,7 +57,7 @@ class Football extends Component {
       method: "GET",
       url: `https://v3.football.api-sports.io/fixtures?league=${this.state.leagueID}&season=2021&date=${this.state.date}`,
       headers: {
-        "x-rapidapi-key": "4dac19a89c8f0784ef509bdbda44cf5a",
+        "x-rapidapi-key": "896f2cddb7c7d8ebc3289460d4835b83",
 
       },
     };
