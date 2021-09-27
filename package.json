@@ -16,6 +16,7 @@
     "jwks-rsa": "^2.0.4",
     "lightning-client": "^0.5.2-beta.8",
     "mongoose": "^6.0.7",
+    "newsapi": "^2.4.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
     "react-dom": "^17.0.2",

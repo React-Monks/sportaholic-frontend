@@ -12,9 +12,14 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Login from './components/Login';
 import './App.css';
 import Football from './components/Football';
+import League from './components/League';
+// import Aboutus from './components/Aboutus'
+
+
 import Teams from './components/Teams';
 import Players from './components/Players';
 import Profile from './components/Profile';
+import Fitness from './components/Fitness';
 class App extends Component {
 
   render() {
@@ -33,22 +38,30 @@ class App extends Component {
               </Route>
             )
           }
-          <Route exact path='/Football'>
+          <Route exact path='/Football'
+              >
             <Football />
           </Route>
 
           <Route path='/teams'>
-            <Teams/>
+            <Teams />
           </Route>
 
         <Route path='/profile'>
             <Profile/>
           </Route> 
           
+          <Route path='/profile'>
+            <Profile/>
+          </Route>
+
           <Route path='/players'>
             <Players />
-          </Route> 
+          </Route>
 
+          <Route path='/fitness'>
+            <Fitness />
+          </Route>
         </Switch>
       </Router>
       <Footer />
