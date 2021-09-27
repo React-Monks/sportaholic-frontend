@@ -10,7 +10,7 @@ class Header extends Component {
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand>sportoholic</Navbar.Brand>
             <NavItem><a href="/" className="nav-link">Home</a></NavItem>
-            <NavItem><a href="/Football" className="nav-link" >Football</a></NavItem>
+            <NavItem><a href="/MyProfile" className="nav-link" >My Profile</a></NavItem>
             <NavItem><a href="/Aboutus" className="nav-link" >Aboutus</a></NavItem>
             {this.props.isAuth&&
             <LogoutButton/>

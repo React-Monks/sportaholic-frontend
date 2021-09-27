@@ -1,27 +1,23 @@
-
 .homepageImgs {
-  height: 200px ; 
+  height: 200px;
   background-size: cover;
 }
-.homePageSpan{
+.homePageSpan {
   display: inline-block;
   margin: 0%;
 }
-#fitness *{
+#fitness * {
   width: 100%;
 }
-#fitness{
+#fitness {
   display: inline-block;
   margin: 15%;
 }
-/* .table td, th {
+/* .table td,
+th {
   text-align: center;
-  
-  }  */
-  /* .table {
-    margin: auto;
-    width: 100% !important; 
-
- } */
-
- 
+}
+.table {
+  margin: auto;
+  width: 100% !important;
+} */
