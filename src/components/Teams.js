@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Form, Button, Table } from "react-bootstrap";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Card } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 class Teams extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +41,9 @@ class Teams extends Component {
   };
   componentDidMount = () => {
     axios.get("https://www.scorebat.com/video-api/v3/").then((res) => {
-        let filteredData=res.data.response.filter((i)=>res.data.response.indexOf(i)>20)
+      let filteredData = res.data.response.filter(
+        (i) => res.data.response.indexOf(i) > 20
+      );
       this.setState({
         news: filteredData,
       });
@@ -122,28 +127,6 @@ class Teams extends Component {
         </Table>
         <br />
         {/* ----------------------------------------             */}
-        <Carousel>
-          {this.state.news.map((i,index) => {
-          
-     return (
-    <>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={i.thumbnail}
-          alt="First slide"
-          style={{height:"500px"}}
-        />
-        <Carousel.Caption>
-          <h3>{i.date}</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </>
-  );
-          
-          })}
-        </Carousel>
-
       
       </>
     );
