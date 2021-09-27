@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
 class FootballTable extends Component {
   render() {
+    console.log(this.props.leagueID)
     return (
       <>
         <Form onSubmit={(e) => this.props.handleTodayGames(e)}>
@@ -12,7 +13,8 @@ class FootballTable extends Component {
         </Form>
 
         <Table striped bordered hover variant="dark">
-          {(this.props.leagueID == 0) ? '' : (
+          {(parseInt(this.props.leagueID) === 0) ? '' : (
+              
             <thead>
               <tr>
                 <th>Date</th>

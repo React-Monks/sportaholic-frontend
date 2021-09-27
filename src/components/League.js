@@ -31,7 +31,7 @@ class League extends Component {
         dataLives: tableData.response,
         //   dataLives: res.data.response,
       });
-      console.log(this.dataLives);
+      
     });
   };
   handleTodayGames = async (e) => {
@@ -57,12 +57,14 @@ class League extends Component {
         dataLives: tableData.response,
         // dataLives: res.data.response,
       });
-      console.log(this.dataLives);
+      
     });
   };
   render() {
     return (
       <>
+      <h1>{this.props.match.params.id}</h1>
+
         <h1>Legue Page</h1>
         <FootballTable
           dataLives={this.state.dataLives}

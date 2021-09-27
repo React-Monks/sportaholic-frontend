@@ -15,7 +15,7 @@ class HomePage extends Component {
         <span className="homePageSpan">
           <Card style={{ width: "18rem", margin: "30%" }}>
             <Card.Title>Legues</Card.Title>
-            <Card.Link href="/legues">
+            <Card.Link href="/Football">
               <Card.Img
                 variant="top"
                 src={footballImg}

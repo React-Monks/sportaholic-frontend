@@ -14,6 +14,7 @@ import Aboutus from "./components/Aboutus";
 import Teams from "./components/Teams";
 import Players from "./components/Players";
 import Fitness from "./components/Fitness";
+import MyProfile from "./components/MyProfile";
 
 class App extends Component {
   render() {
@@ -32,32 +33,33 @@ class App extends Component {
                 <Login />
               </Route>
             )
-          }
-          <Route exact path='/Football'
-              >
-            <Football />
-          </Route>
+            }
+            <Route exact path='/Football'
+            >
+              <Football />
+            </Route>
 
-          <Route exact path='/Fitness'
-              >
-            <Fitness />
-          </Route>
+            <Route exact path='/Fitness'
+            >
+              <Fitness />
+            </Route>
 
-          <Route exact path='/MyProfile'
-              >
-            <MyProfile />
-          </Route>
+            <Route exact path='/MyProfile'
+            >
+              <MyProfile />
+            </Route>
+
+            <Route exact path='/League/:id' component={League} />
+            
+            <Route path='/Aboutus'>
+              <Aboutus />
+            </Route>
 
 
-          <Route path='/teams'>
-            <Teams/>
-          </Route>
+            <Route path='/teams'>
+              <Teams />
+            </Route>
 
-          {/* <Route path='/UFC'>
-            <UFC />
-          </Route> */}
-          
-         
 
             <Route path="/profile">
               <Profile />

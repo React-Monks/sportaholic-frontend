@@ -89,7 +89,7 @@ class Fitness extends Component {
                     <input type='text' placeholder="Food name" />
                     <input type='submit' />
                 </form>
-                {health != '' &&
+                {health !== '' &&
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
@@ -112,7 +112,7 @@ class Fitness extends Component {
                         </tbody>
                     </Table>
                 }
-                {food != '' &&
+                {food !== '' &&
                     <Table striped bordered hover variant="dark">
                         <thead>
                         <tr>
