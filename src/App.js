@@ -12,19 +12,16 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Login from './components/Login';
 import './App.css';
 import Football from './components/Football';
-import Basketball from './components/Basketball';
-import UFC from './components/UFC';
-import Tennis from './components/Tennis';
 import League from './components/League';
 import Aboutus from './components/Aboutus'
-
-
 import Teams from './components/Teams';
 import Players from './components/Players';
+import Fitness from './components/Fitness';
+import MyProfile from './components/MyProfile';
+
 class App extends Component {
 
   render() {
-    console.log(this.props.auth0.isAuthenticated);
 
     return (<>
       <Header isAuth={this.props.auth0.isAuthenticated} />
@@ -44,6 +41,17 @@ class App extends Component {
             <Football />
           </Route>
 
+          <Route exact path='/Fitness'
+              >
+            <Fitness />
+          </Route>
+
+          <Route exact path='/MyProfile'
+              >
+            <MyProfile />
+          </Route>
+
+
           <Route path='/teams'>
             <Teams/>
           </Route>
@@ -52,10 +60,7 @@ class App extends Component {
             <UFC />
           </Route> */}
           
-          <Route path='/tennis'>
-            <Tennis />
-
-            </Route>
+         
 
             <Route exact path='/league/:id'  component={League} />
             

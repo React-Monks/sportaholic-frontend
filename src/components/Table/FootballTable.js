@@ -2,33 +2,29 @@ import React, { Component } from 'react'
 import { Form, Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
-
-
 class FootballTable extends Component {
-
   render() {
     return (
-
       <>
-        <Form onSubmit={(e)=> this.props.handleTodayGames(e)}>
-                <input type ='date' />
-                <input type ='submit' />
-            </Form>
+        <Form onSubmit={(e) => this.props.handleTodayGames(e)}>
+          <input type='date' />
+          <input type='submit' />
+        </Form>
 
         <Table striped bordered hover variant="dark">
           {(this.props.leagueID == 0) ? '' : (
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Status</th>
-              <th></th>
-              <th>Fixture</th>
-              <th></th>
-              <th>League Name</th>
-
-              <th>Score</th>
-            </tr>
-          </thead>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+                <th>Fixture</th>
+                <th></th>
+                <th>League Name</th>
+                <td>Guess</td>
+                <th>Score</th>
+              </tr>
+            </thead>
           )
           }
           {this.props.dataLives.map((i) => {
@@ -46,11 +42,11 @@ class FootballTable extends Component {
                         width="90"
                         height="90"
                       />
-                      </td>
-                      <td>                      
+                    </td>
+                    <td>
                       {i.teams.home.name}{" "}( VS ){" "}{i.teams.away.name}
-                      </td>
-                      <td>
+                    </td>
+                    <td>
                       <img
                         //   className="d-block w-100"
                         src={i.teams.away.logo}
@@ -58,9 +54,16 @@ class FootballTable extends Component {
                         width="90"
                         height="90"
                       />
-                      
+
                     </td>
                     <td>{i.league.name}</td>
+                    <td>
+                      <form>
+                        <input type="number" />:  <input type="number" />
+                         
+                        
+                      </form>
+                    </td>
                     <td>
                       {i.score.fulltime.home} : {i.score.fulltime.away}
                     </td>
