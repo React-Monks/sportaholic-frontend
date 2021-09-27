@@ -14,10 +14,10 @@ import Aboutus from "./components/Aboutus";
 import Teams from "./components/Teams";
 import Players from "./components/Players";
 import Fitness from "./components/Fitness";
+import MyProfile from "./components/MyProfile";
 
 class App extends Component {
   render() {
-    console.log(this.props.auth0.isAuthenticated);
 
     return (
       <>
@@ -32,14 +32,34 @@ class App extends Component {
               <Route path="/">
                 <Login />
               </Route>
-            )}
-            <Route exact path="/Football">
+            )
+            }
+            <Route exact path='/Football'
+            >
               <Football />
             </Route>
 
-            <Route path="/teams">
+            <Route exact path='/Fitness'
+            >
+              <Fitness />
+            </Route>
+
+            <Route exact path='/MyProfile'
+            >
+              <MyProfile />
+            </Route>
+
+            <Route exact path='/League/:id' component={League} />
+            
+            <Route path='/Aboutus'>
+              <Aboutus />
+            </Route>
+
+
+            <Route path='/teams'>
               <Teams />
             </Route>
+
 
             <Route path="/profile">
               <Profile />
