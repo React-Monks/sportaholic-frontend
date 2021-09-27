@@ -67,60 +67,19 @@ componentDidMount=async ()=>{
     }
     // -----------------------
   
-    componentDidMount = () => {
-      axios
-        .get(
-          "https://newsapi.org/v2/top-headlines?country=de&category=sports&apiKey=84de0022efa34366b36042c640ef7fd9"
-        )
-        .then((res) => {
-          this.setState({
-            news: res.data.articles,
-          });
-          console.log(res.data.articles);
-        });
-    };
+    
 
     render() {
         
         return (
 <>
             <h1>Legue Page</h1>
-<Football/>
             <FootballTable
             dataLives={this.state.dataLives}
             leagueID={this.props.match.params.id}
             handleTodayGames={this.handleTodayGames}/>
 
-            {/* ------------------------------- */}
-            <Table striped bordered hover>
-          {this.state.news.map((i) => {
-            return (
-              <>
-                <tbody>
-                  <tr>
-                    <td>
-                      {" "}
-                      <img
-                        //   className="d-block w-100"
-                        src={i.urlToImage}
-                        alt="logo"
-                        width="90"
-                        height="90"
-                      />
-                    </td>
-                    <td>{i.title}</td>
-
-                    <td>{i.author}</td>
-                    <td>{i.description}</td>
-
-                    <td>{i.publishedAt}</td>
-                    <td>{i.content}</td>
-                  </tr>
-                </tbody>
-              </>
-            );
-          })}
-        </Table>
+         
           </>
         )
     }
