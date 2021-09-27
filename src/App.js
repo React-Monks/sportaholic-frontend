@@ -14,6 +14,7 @@ import './App.css';
 import Football from './components/Football';
 import Teams from './components/Teams';
 import Players from './components/Players';
+import Profile from './components/Profile';
 class App extends Component {
 
   render() {
@@ -40,9 +41,9 @@ class App extends Component {
             <Teams/>
           </Route>
 
-          {/* <Route path='/UFC'>
-            <UFC />
-          </Route> */}
+        <Route path='/profile'>
+            <Profile/>
+          </Route> 
           
           <Route path='/players'>
             <Players />
