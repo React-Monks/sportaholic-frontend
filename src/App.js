@@ -1,37 +1,34 @@
-import React, { Component } from 'react'
-import HomePage from './components/HomePage';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { withAuth0 } from '@auth0/auth0-react';
-import Login from './components/Login';
-import './App.css';
-import Football from './components/Football';
-import League from './components/League';
-import Aboutus from './components/Aboutus'
-import Teams from './components/Teams';
-import Players from './components/Players';
-import Fitness from './components/Fitness';
-import MyProfile from './components/MyProfile';
+import React, { Component } from "react";
+import HomePage from "./components/HomePage";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { withAuth0 } from "@auth0/auth0-react";
+import Login from "./components/Login";
+import "./App.css";
+import Football from "./components/Football";
+import Profile from "./components/Profile";
+import League from "./components/League";
+import Aboutus from "./components/Aboutus";
+import Teams from "./components/Teams";
+import Players from "./components/Players";
+import Fitness from "./components/Fitness";
 
 class App extends Component {
-
   render() {
 
-    return (<>
-      <Header isAuth={this.props.auth0.isAuthenticated} />
-      <Router>
-        <Switch>
-          {this.props.auth0.isAuthenticated ?
-            (<Route exact path='/'>
-              <HomePage />
-            </Route>) : (
-              <Route path='/'>
+    return (
+      <>
+        <Header isAuth={this.props.auth0.isAuthenticated} />
+        <Router>
+          <Switch>
+            {this.props.auth0.isAuthenticated ? (
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+            ) : (
+              <Route path="/">
                 <Login />
               </Route>
             )
@@ -62,21 +59,22 @@ class App extends Component {
           
          
 
-            <Route exact path='/league/:id'  component={League} />
-            
-            <Route path='/Aboutus'>
-            <Aboutus />
-
+            <Route path="/profile">
+              <Profile />
             </Route>
-          <Route path='/players'>
-            <Players />
-          </Route> 
 
-        </Switch>
-      </Router>
-      <Footer />
-    </>
-    )
+            <Route path="/players">
+              <Players />
+            </Route>
+
+            <Route path="/fitness">
+              <Fitness />
+            </Route>
+          </Switch>
+        </Router>
+        <Footer />
+      </>
+    );
   }
 }
 
