@@ -53,8 +53,8 @@ class HomePage extends Component {
 
         <span className="homePageSpan">
           <Card style={{ width: "18rem", margin: "30%" }}>
-            <Card.Title>Seasons</Card.Title>
-            <Card.Link href="/season">
+            <Card.Title>profile</Card.Title>
+            <Card.Link href="/profile">
               <Card.Img variant="top" src={UFCImg} className="homepageImgs" />
             </Card.Link>
           </Card>

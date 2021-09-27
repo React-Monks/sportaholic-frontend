@@ -8,14 +8,13 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Login from "./components/Login";
 import "./App.css";
 import Football from "./components/Football";
-
-import Season from "./components/Season";
-
+import Profile from "./components/Profile";
 import League from "./components/League";
 import Aboutus from "./components/Aboutus";
-
 import Teams from "./components/Teams";
 import Players from "./components/Players";
+import Fitness from "./components/Fitness";
+
 class App extends Component {
   render() {
     console.log(this.props.auth0.isAuthenticated);
@@ -42,17 +41,16 @@ class App extends Component {
               <Teams />
             </Route>
 
-            <Route path="/season">
-              <Season />
+            <Route path="/profile">
+              <Profile />
             </Route>
 
-            <Route exact path="/league/:id" component={League} />
-
-            <Route path="/Aboutus">
-              <Aboutus />
-            </Route>
             <Route path="/players">
               <Players />
+            </Route>
+
+            <Route path="/fitness">
+              <Fitness />
             </Route>
           </Switch>
         </Router>
