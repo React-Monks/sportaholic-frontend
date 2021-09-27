@@ -9,34 +9,34 @@ import { Card } from 'react-bootstrap';
 class HomePage extends Component {
     render() {
         return (<>
-            <h3 style={{ marginLeft: '45%' }}>Sports</h3>
-
-            <span className='homePageSpan'>
-                <Card style={{ width: '18rem', margin: '30%' }}>
-                    <Card.Title>Football</Card.Title>
-                    <Card.Link href="/Football"><Card.Img variant="top" src={footballImg} className='homepageImgs' /></Card.Link>
-                </Card>
+                <h3 style={{ marginLeft: '45%' }}>Sports</h3>
+                
+                <span className='homePageSpan'>
+                <Card style={{ width: '18rem' ,margin: '30%'}}>
+                <Card.Title>Legues</Card.Title>
+                <Card.Link href="/legues"><Card.Img variant="top" src={footballImg} className='homepageImgs'/></Card.Link>
+            </Card>
             </span>
 
             <span className='homePageSpan'>
-                <Card style={{ width: '18rem', margin: '30%' }}>
-                    <Card.Title>Tennis</Card.Title>
-                    <Card.Link href="/Tennis"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
-                </Card>
+            <Card style={{ width: '18rem' ,margin: '30%'}}>
+                <Card.Title>Teams</Card.Title>
+                <Card.Link href="/teams"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
+            </Card>
             </span>
 
             <span className='homePageSpan'>
-                <Card style={{ width: '18rem', margin: '30%' }}>
-                    <Card.Title>Basketball</Card.Title>
-                    <Card.Link href="/Basketball"><Card.Img variant="top" src={basketballImg} className='homepageImgs' /></Card.Link>
-                </Card>
+            <Card style={{ width: '18rem' ,margin: '30%'}}>
+                <Card.Title>Players</Card.Title>
+                <Card.Link href="/players"><Card.Img variant="top" src={basketballImg}className='homepageImgs' /></Card.Link>
+            </Card>
             </span>
 
             <span className='homePageSpan'>
-                <Card style={{ width: '18rem', margin: '30%' }}>
-                    <Card.Title>UFC</Card.Title>
-                    <Card.Link href="/UFC"><Card.Img variant="top" src={UFCImg} className='homepageImgs' /></Card.Link>
-                </Card>
+            <Card style={{width: '18rem' , margin: '30%' }}>
+                <Card.Title>Seasons</Card.Title>
+                <Card.Link href="/"><Card.Img variant="top" src={UFCImg} className='homepageImgs'/></Card.Link>
+            </Card>
             </span>
             <div>
                 <span id='fitness'>

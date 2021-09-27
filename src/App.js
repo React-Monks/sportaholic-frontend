@@ -19,6 +19,8 @@ import League from './components/League';
 import Aboutus from './components/Aboutus'
 
 
+import Teams from './components/Teams';
+import Players from './components/Players';
 class App extends Component {
 
   render() {
@@ -42,13 +44,13 @@ class App extends Component {
             <Football />
           </Route>
 
-          <Route path='/basketball'>
-            <Basketball />
+          <Route path='/teams'>
+            <Teams/>
           </Route>
 
-          <Route path='/UFC'>
+          {/* <Route path='/UFC'>
             <UFC />
-          </Route>
+          </Route> */}
           
           <Route path='/tennis'>
             <Tennis />
@@ -61,6 +63,9 @@ class App extends Component {
             <Aboutus />
 
             </Route>
+          <Route path='/players'>
+            <Players />
+          </Route> 
 
         </Switch>
       </Router>
