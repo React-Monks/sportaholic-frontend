@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
+
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import FootballCards from "./FootballCards";
-import FootballTable from "./Table/FootballTable";
-import {  Button } from "react-bootstrap";
-import Table from "react-bootstrap/Table";
+  Card,
+  Button,
+  Row,
+  Col,
+  Container
+} from 'react-bootstrap';
+
 
 class Football extends Component {
   constructor(props) {
@@ -17,45 +18,20 @@ class Football extends Component {
       data: [],
       dataLives: [],
       leagueID: 0,
-      date: '',
-
+      date: ''
     };
-  }
-  //   handlefootballOne = async (e) => {
-  //     e.preventDefault();
-  //     let config = {
-  //       method: "GET",
-  //       baseURL: "https://www.scorebat.com/video-api/v3/",
-  //     };
-
-  //     await axios(config).then((res) => {
-  //       this.setState({
-  //         data: res.data.response,
-  //       });
-
-  //     });
-  //   };
-
-  //   ---------------------league2--------------
-  handleDate = async (e) => {
-    e.preventDefault();
     
-    await this.setState({
-      date: e.target[0].value,
-    })
   }
 
   handleFootballLive = async (e) => {
     e.preventDefault();
-
-  //  window.location.href = '/league';
     await this.setState({
 
       leagueID: e.target.value
     })
     let config = await {
       method: "GET",
-      url: `https://v3.football.api-sports.io/fixtures?league=${this.state.leagueID}&season=2021&date=${this.state.date}`,
+      url: `https://v3.football.api-sports.io/fixtures?league=${this.state.leagueID}&season=2021`,
       headers: {
         "x-rapidapi-key": "4dac19a89c8f0784ef509bdbda44cf5a",
 
@@ -65,58 +41,68 @@ class Football extends Component {
       this.setState({
         dataLives: res.data.response,
       });
-
+      console.log('this.state.leagueID');
+      console.log(this.state.leagueID)
     });
+   
   };
 
 
   render() {
+   
+
+    
     return (
       <>
-        <FootballCards handleFootballLive={this.handleFootballLive} />
-        {/* <Router>
-          <Switch>
-            <Route path="/league"> */}
-              <FootballTable
-                handleDate={this.handleDate}
-                dataLives={this.state.dataLives}
-                leagueID={this.state.leagueID}
-              />
-            {/* </Route>
-          </Switch>
-        </Router> */}
+        <Container>
+
+          <Row>
+            <Col>
+              <Card style={{ width: '18rem' }} >
+                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/2.png" />
+                <Card.Body>
+                  <Card.Title>"UEFA Champions League"</Card.Title>
+                  <Button  value='2' onClick={(e) => this.handleFootballLive(e)}>Data</Button>
+                  <Link to={`/league/${this.state.leagueID}`}> legaue</Link>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/39.png" />
+                <Card.Body>
+                  <Card.Title>"Premier League"</Card.Title>
+                  <Button variant="primary" value='39' onClick={(e) => this.handleFootballLive(e)}>Go somewhere</Button>
+                </Card.Body>
+              </Card>
+
+            </Col>
+            <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/140.png" />
+                <Card.Body>
+                  <Card.Title>La Liga</Card.Title>
+                  <Button variant="primary" value='140' onClick={(e) => this.handleFootballLive(e)}>Go somewhere</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/78.png" />
+                <Card.Body>
+                  <Card.Title>Bundesliga 1</Card.Title>
+                  <Button variant="primary" value='78' onClick={(e) => this.handleFootballLive(e)}>Go somewhere</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+          </Row>
+        </Container>
+       
 
 
 
-        {/* {this.state.data.map((i) => {
-          return (
-            <>
-              <Modal.Dialog>
-                <Modal.Header closeButton>
-                  <Modal.Title>
-                    {" "}
-                    <p>{i.title}</p>
-                  </Modal.Title>
-                </Modal.Header>
 
-                <Modal.Body>
-                  <img
-                    className="d-block w-100"
-                    src={i.thumbnail}
-                    alt="Third slide"
-                    width="90"
-                    height="400"
-                  />
-                </Modal.Body>
-
-                <Modal.Footer>
-                  <Button variant="secondary">Close</Button>
-                  <Button variant="primary">Save changes</Button>
-                </Modal.Footer>
-              </Modal.Dialog>
-            </>
-          );
-        })} */}
       </>
     );
   }

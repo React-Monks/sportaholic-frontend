@@ -56,6 +56,7 @@ class Basketball extends Component {
         console.log(this.state.dayGames);
         return (
             <div>
+                <h1>Basketball</h1>
                 <form onSubmit={this.handleTodayGames}>
                     <input type='date' />
                     <input type='submit' />

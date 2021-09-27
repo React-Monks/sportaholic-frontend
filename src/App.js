@@ -15,6 +15,9 @@ import Football from './components/Football';
 import Basketball from './components/Basketball';
 import UFC from './components/UFC';
 import Tennis from './components/Tennis';
+import League from './components/League';
+import Aboutus from './components/Aboutus'
+
 
 class App extends Component {
 
@@ -34,7 +37,8 @@ class App extends Component {
               </Route>
             )
           }
-          <Route exact path='/Football'>
+          <Route exact path='/Football'
+              >
             <Football />
           </Route>
 
@@ -48,7 +52,15 @@ class App extends Component {
           
           <Route path='/tennis'>
             <Tennis />
-          </Route>
+
+            </Route>
+
+            <Route exact path='/league/:id'  component={League} />
+            
+            <Route path='/Aboutus'>
+            <Aboutus />
+
+            </Route>
 
         </Switch>
       </Router>

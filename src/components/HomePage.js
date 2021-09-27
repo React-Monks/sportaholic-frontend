@@ -4,39 +4,39 @@ import footballImg from './img/wp3616722 (1).png';
 import basketballImg from './img/36f75d87668f0a3fe0e5ebff7e4e4364.jpg';
 import UFCImg from './img/images.png';
 import fitness from './img/istockphoto-1276373630-1024x1024.jpg';
-import { Card, } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 class HomePage extends Component {
     render() {
         return (<>
-                <h3 style={{ marginLeft: '45%' }}>Sports</h3>
-                
-                <span className='homePageSpan'>
-                <Card style={{ width: '18rem' ,margin: '30%'}}>
-                <Card.Title>Football</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={footballImg} className='homepageImgs'/></Card.Link>
-            </Card>
+            <h3 style={{ marginLeft: '45%' }}>Sports</h3>
+
+            <span className='homePageSpan'>
+                <Card style={{ width: '18rem', margin: '30%' }}>
+                    <Card.Title>Football</Card.Title>
+                    <Card.Link href="/Football"><Card.Img variant="top" src={footballImg} className='homepageImgs' /></Card.Link>
+                </Card>
             </span>
 
             <span className='homePageSpan'>
-            <Card style={{ width: '18rem' ,margin: '30%'}}>
-                <Card.Title>Tennis</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
-            </Card>
+                <Card style={{ width: '18rem', margin: '30%' }}>
+                    <Card.Title>Tennis</Card.Title>
+                    <Card.Link href="/Tennis"><Card.Img variant="top" src={tennisImg} className='homepageImgs' /></Card.Link>
+                </Card>
             </span>
 
             <span className='homePageSpan'>
-            <Card style={{ width: '18rem' ,margin: '30%'}}>
-                <Card.Title>Basketball</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={basketballImg}className='homepageImgs' /></Card.Link>
-            </Card>
+                <Card style={{ width: '18rem', margin: '30%' }}>
+                    <Card.Title>Basketball</Card.Title>
+                    <Card.Link href="/Basketball"><Card.Img variant="top" src={basketballImg} className='homepageImgs' /></Card.Link>
+                </Card>
             </span>
 
             <span className='homePageSpan'>
-            <Card style={{width: '18rem' , margin: '30%' }}>
-                <Card.Title>UFC</Card.Title>
-                <Card.Link href="/Football"><Card.Img variant="top" src={UFCImg} className='homepageImgs'/></Card.Link>
-            </Card>
+                <Card style={{ width: '18rem', margin: '30%' }}>
+                    <Card.Title>UFC</Card.Title>
+                    <Card.Link href="/UFC"><Card.Img variant="top" src={UFCImg} className='homepageImgs' /></Card.Link>
+                </Card>
             </span>
             <div>
                 <span id='fitness'>
