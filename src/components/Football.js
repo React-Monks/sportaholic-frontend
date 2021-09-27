@@ -1,14 +1,8 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
-import { withAuth0 } from '@auth0/auth0-react';
+import { Link } from "react-router-dom";
+import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import {
-  Card,
-  Button,
-  Row,
-  Col,
-  Container
-} from 'react-bootstrap';
+import { Card, Button, Row, Col, Container, Table } from "react-bootstrap";
 
 class Football extends Component {
   constructor(props) {
@@ -17,13 +11,14 @@ class Football extends Component {
       data: [],
       dataLives: [],
       leagueID: 0,
-      date: ''
+      date: "",
+      news: [],
     };
-  };
+  }
   handleFootballLive = async (e) => {
     e.preventDefault();
     await this.setState({
-      leagueID: e.target.value
+      leagueID: e.target.value,
     });
   };
 
@@ -31,14 +26,13 @@ class Football extends Component {
     let config = {
       method: "GET",
       url: `${process.env.REACT_APP_BACKEND}/article`,
-    }
-    axios(config).then(res => {
+    };
+    axios(config).then((res) => {
       this.setState({
-        data: res.data
-      })
-    })
-
-  }
+        data: res.data,
+      });
+    });
+  };
 
   handleArticleSubmit = (e) => {
     e.preventDefault();
@@ -48,16 +42,27 @@ class Football extends Component {
       data: {
         userName: this.props.auth0.user.name,
         userEmail: this.props.auth0.user.email,
-        text: e.target.article.value
-      }
-    }
-    axios(config).then(res => {
+        text: e.target.article.value,
+      },
+    };
+    axios(config).then((res) => {
       this.setState({
-        data: res.data
-      })
-    })
-
-  }
+        data: res.data,
+      });
+    });
+  };
+  componentDidMount = () => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=84de0022efa34366b36042c640ef7fd9"
+      )
+      .then((res) => {
+        this.setState({
+          news: res.data.articles,
+        });
+        console.log(res.data.articles);
+      });
+  };
   render() {
     console.log(this.state.data);
     return (
@@ -65,8 +70,11 @@ class Football extends Component {
         <Container>
           <Row>
             <Col>
-              <Card style={{ width: '18rem' }} >
-                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/2.png" />
+              <Card style={{ width: "18rem" }}>
+                <Card.Img
+                  variant="top"
+                  src="https://media.api-sports.io/football/leagues/2.png"
+                />
                 <Card.Body>
                   <Card.Title>"UEFA Champions League"</Card.Title>
                   <Link to={`/league/2`}>
@@ -78,8 +86,11 @@ class Football extends Component {
               </Card>
             </Col>
             <Col>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/39.png" />
+              <Card style={{ width: "18rem" }}>
+                <Card.Img
+                  variant="top"
+                  src="https://media.api-sports.io/football/leagues/39.png"
+                />
                 <Card.Body>
                   <Card.Title>"Premier League"</Card.Title>
                   <Link to={`/league/39`}>
@@ -91,8 +102,11 @@ class Football extends Component {
               </Card>
             </Col>
             <Col>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/140.png" />
+              <Card style={{ width: "18rem" }}>
+                <Card.Img
+                  variant="top"
+                  src="https://media.api-sports.io/football/leagues/140.png"
+                />
                 <Card.Body>
                   <Card.Title>La Liga</Card.Title>
                   <Link to={`/league/140`}>
@@ -104,8 +118,11 @@ class Football extends Component {
               </Card>
             </Col>
             <Col>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://media.api-sports.io/football/leagues/78.png" />
+              <Card style={{ width: "18rem" }}>
+                <Card.Img
+                  variant="top"
+                  src="https://media.api-sports.io/football/leagues/78.png"
+                />
                 <Card.Body>
                   <Card.Title>Bundesliga 1</Card.Title>
                   <Link to={`/league/78`}>
@@ -120,26 +137,50 @@ class Football extends Component {
         </Container>
         <h2>Users articles</h2>
         <table>
-          {this.state.data.map(article => {
-            return (<tr>
-              <th>
-                {article.userName}
-              </th>
-              <th>
-                {article.text}
-              </th>
-            </tr>)
-
-          })
-          }
+          {this.state.data.map((article) => {
+            return (
+              <tr>
+                <th>{article.userName}</th>
+                <th>{article.text}</th>
+              </tr>
+            );
+          })}
         </table>
-        <form onSubmit={(e) => { this.handleArticleSubmit(e) }}>
+        <form
+          onSubmit={(e) => {
+            this.handleArticleSubmit(e);
+          }}
+        >
           <label>Write down your article</label>
           <br />
-          <textarea rows="4" cols="50" name='article' />
+          <textarea rows="4" cols="50" name="article" />
           <br />
-          <input type='submit' />
+          <input type="submit" />
         </form>
+        {/* ------------------------------- */}
+        <Table striped bordered hover>
+          {this.state.news.map((i) => {
+            return (
+              <>
+                <tbody>
+                  <tr>
+                    <td>
+                      {" "}
+                      <img
+                        //   className="d-block w-100"
+                        src={i.urlToImage}
+                        alt="logo"
+                        width="90"
+                        height="90"
+                      />
+                    </td>
+                    <td><b>{i.title}</b><br/>{i.content}</td>
+                  </tr>
+                </tbody>
+              </>
+            );
+          })}
+        </Table>
       </>
     );
   }
