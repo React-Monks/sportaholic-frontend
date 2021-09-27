@@ -12,6 +12,7 @@ import {
 } from 'react-bootstrap'
 import axios from 'axios';
 
+
 class MyProfile extends Component {
     constructor(props) {
         super(props);
@@ -20,6 +21,7 @@ class MyProfile extends Component {
             text: '',
             showForm: false,
             id: '',
+            favItems: [],
         }
     }
     componentDidMount = () => {
@@ -28,14 +30,42 @@ class MyProfile extends Component {
             url: `${process.env.REACT_APP_BACKEND}/article`,
         }
         axios(config).then(res => {
-            let unFeltered =res.data;
+            let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
-             this.setState({
-                 data: filtered
-             })
+            this.setState({
+                data: filtered
+            })
         })
     }
 
+    componentDidMount = () => {
+        let config = {
+            method: "GET",
+            url: `${process.env.REACT_APP_BACKEND}//fav`,
+        }
+        axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            this.setState({
+                favItems: filtered
+            })
+        })
+    }
+    handleFavDelete = (id) => {
+        let config = {
+            method: "DELETE",
+            baseURL: process.env.REACT_APP_BACKEND,
+            url: `/deletefav/${id}`,
+        }
+
+        axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            this.setState({
+                data: filtered
+            })
+        })
+    }
     handleUpdate = (text, id) => {
         this.setState({
             showForm: true,
@@ -60,9 +90,12 @@ class MyProfile extends Component {
                 text: this.state.text
             }
         }
+
         axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
             this.setState({
-                data: res.data
+                data: filtered
             })
         })
     }
@@ -73,10 +106,12 @@ class MyProfile extends Component {
             baseURL: process.env.REACT_APP_BACKEND,
             url: `/deleteArticle/${id}`,
         }
-        axios(config).then((res) => {
+        axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
             this.setState({
-                data: res.data
-            });
+                data: filtered
+            })
         })
 
     }
@@ -106,7 +141,23 @@ class MyProfile extends Component {
                     <Col className="mb-5 mb-lg-0" lg="3" md="6" style={{ width: '50%' }}>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
                             <Tab eventKey="favorites" title="My Favorites" >
-                                <p>hello</p>
+                                {this.state.favItems.map(fav => {
+                                    return (<tbody>
+                                        <tr>
+                                            <th>
+                                                <img src={fav.imgUrl} alt="img" />
+                                            </th>
+                                            <th>
+                                                {fav.name}
+                                            </th>
+                                            <th>
+                                                <button onClick={() => this.handleFavDelete(fav._id)}>DELETE</button>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                    )
+                                })
+                                }
                             </Tab>
                             <Tab eventKey="articles" title="My Articles">
                                 <table>
