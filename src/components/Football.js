@@ -13,12 +13,14 @@ class Football extends Component {
       leagueID: 0,
       date: "",
       news: [],
+      
     };
   }
   handleFootballLive = async (e) => {
     e.preventDefault();
     await this.setState({
       leagueID: e.target.value,
+      
     });
   };
 
@@ -60,11 +62,9 @@ class Football extends Component {
         this.setState({
           news: res.data.articles,
         });
-        console.log(res.data.articles);
       });
   };
   render() {
-    console.log(this.state.data);
     return (
       <>
         <Container>

@@ -3,15 +3,14 @@ import { Form } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
 class FootballTable extends Component {
+   
   render() {
-    console.log(this.props.leagueID)
     return (
       <>
         <Form onSubmit={(e) => this.props.handleTodayGames(e)}>
           <input type='date' />
           <input type='submit' />
         </Form>
-
         <Table striped bordered hover variant="dark">
           {(parseInt(this.props.leagueID) === 0) ? '' : (
               
@@ -23,7 +22,6 @@ class FootballTable extends Component {
                 <th>Fixture</th>
                 <th></th>
                 <th>League Name</th>
-                <td>Guess</td>
                 <th>Score</th>
               </tr>
             </thead>
@@ -59,13 +57,7 @@ class FootballTable extends Component {
 
                     </td>
                     <td>{i.league.name}</td>
-                    <td>
-                      <form>
-                        <input type="number" />:  <input type="number" />
-                         
-                        
-                      </form>
-                    </td>
+                  
                     <td>
                       {i.score.fulltime.home} : {i.score.fulltime.away}
                     </td>
