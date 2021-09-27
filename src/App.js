@@ -21,6 +21,7 @@ import Aboutus from './components/Aboutus'
 
 import Teams from './components/Teams';
 import Players from './components/Players';
+import Fitness from './components/Fitness';
 class App extends Component {
 
   render() {
@@ -45,28 +46,20 @@ class App extends Component {
           </Route>
 
           <Route path='/teams'>
-            <Teams/>
+            <Teams />
           </Route>
 
           {/* <Route path='/UFC'>
             <UFC />
           </Route> */}
-          
-          <Route path='/tennis'>
-            <Tennis />
 
-            </Route>
-
-            <Route exact path='/league/:id'  component={League} />
-            
-            <Route path='/Aboutus'>
-            <Aboutus />
-
-            </Route>
           <Route path='/players'>
             <Players />
-          </Route> 
+          </Route>
 
+          <Route path='/fitness'>
+            <Fitness />
+          </Route>
         </Switch>
       </Router>
       <Footer />
