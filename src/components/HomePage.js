@@ -4,7 +4,7 @@ import footballImg from './img/wp3616722 (1).png';
 import basketballImg from './img/36f75d87668f0a3fe0e5ebff7e4e4364.jpg';
 import UFCImg from './img/images.png';
 import fitness from './img/istockphoto-1276373630-1024x1024.jpg';
-import { Card, } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 class HomePage extends Component {
     render() {

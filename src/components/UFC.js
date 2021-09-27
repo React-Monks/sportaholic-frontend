@@ -4,6 +4,7 @@ class UFC extends Component {
     render() {
         return (
             <div>
+                <h1>UFC</h1>
                 
             </div>
         )
