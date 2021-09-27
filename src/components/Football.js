@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
-
+import { withAuth0 } from '@auth0/auth0-react';
+import axios from "axios";
 import {
   Card,
   Button,
@@ -25,7 +26,40 @@ class Football extends Component {
       leagueID: e.target.value
     });
   };
+
+  componentDidMount = () => {
+    let config = {
+      method: "GET",
+      url: `${process.env.REACT_APP_BACKEND}/article`,
+    }
+    axios(config).then(res => {
+      this.setState({
+        data: res.data
+      })
+    })
+
+  }
+
+  handleArticleSubmit = (e) => {
+    e.preventDefault();
+    let config = {
+      method: "POST",
+      url: `${process.env.REACT_APP_BACKEND}/createArticle`,
+      data: {
+        userName: this.props.auth0.user.name,
+        userEmail: this.props.auth0.user.email,
+        text: e.target.article.value
+      }
+    }
+    axios(config).then(res => {
+      this.setState({
+        data: res.data
+      })
+    })
+
+  }
   render() {
+    console.log(this.state.data);
     return (
       <>
         <Container>
@@ -52,7 +86,7 @@ class Football extends Component {
                     <Button renderAs="button">
                       <span>Fixture</span>
                     </Button>
-                    </Link>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>
@@ -65,7 +99,7 @@ class Football extends Component {
                     <Button renderAs="button">
                       <span>Fixture</span>
                     </Button>
-                    </Link>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>
@@ -78,15 +112,37 @@ class Football extends Component {
                     <Button renderAs="button">
                       <span>Fixture</span>
                     </Button>
-                    </Link>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
         </Container>
+        <h2>Users articles</h2>
+        <table>
+          {this.state.data.map(article => {
+            return (<tr>
+              <th>
+                {article.userName}
+              </th>
+              <th>
+                {article.text}
+              </th>
+            </tr>)
+
+          })
+          }
+        </table>
+        <form onSubmit={(e) => { this.handleArticleSubmit(e) }}>
+          <label>Write down your article</label>
+          <br />
+          <textarea rows="4" cols="50" name='article' />
+          <br />
+          <input type='submit' />
+        </form>
       </>
     );
   }
 }
 
-export default Football;
+export default withAuth0(Football);
