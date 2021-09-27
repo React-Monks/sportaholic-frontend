@@ -30,7 +30,7 @@ class Players extends Component {
       // qs: { id: "33" },
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "896f2cddb7c7d8ebc3289460d4835b83",
+        "x-rapidapi-key": process.env.REACT_APP_APIFOOTBAL,
       },
     };
     await axios(config).then((res) => {

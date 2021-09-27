@@ -24,6 +24,7 @@ class MyProfile extends Component {
             favItems: [],
         }
     }
+    //##########################################{Article}#######################################|
     componentDidMount = () => {
         let config = {
             method: "GET",
@@ -37,42 +38,6 @@ class MyProfile extends Component {
             })
         })
     }
-
-    componentDidMount = () => {
-        let config = {
-            method: "GET",
-            url: `${process.env.REACT_APP_BACKEND}//fav`,
-        }
-        axios(config).then(res => {
-            let unFeltered = res.data;
-            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
-            this.setState({
-                favItems: filtered
-            })
-        })
-    }
-    handleFavDelete = (id) => {
-        let config = {
-            method: "DELETE",
-            baseURL: process.env.REACT_APP_BACKEND,
-            url: `/deletefav/${id}`,
-        }
-
-        axios(config).then(res => {
-            let unFeltered = res.data;
-            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
-            this.setState({
-                data: filtered
-            })
-        })
-    }
-    handleUpdate = (text, id) => {
-        this.setState({
-            showForm: true,
-            text: text,
-            id: id,
-        });
-    };
 
     handleUpdatedForm = async (e) => {
         e.preventDefault();
@@ -115,6 +80,46 @@ class MyProfile extends Component {
         })
 
     }
+
+    handleUpdate = (text, id) => {
+        this.setState({
+            showForm: true,
+            text: text,
+            id: id,
+        });
+    };
+
+    //##########################################{fav}###########################################|
+    componentDidMount = () => {
+        let config = {
+            method: "GET",
+            url: `${process.env.REACT_APP_BACKEND}/fav`,
+        }
+        axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            this.setState({
+                favItems: filtered
+            })
+        })
+    }
+    handleFavDelete =async (id) => {
+        let config  =await {
+            method: "DELETE",
+            baseURL: process.env.REACT_APP_BACKEND,
+            url: `/deletefav/${id}`,
+        }
+
+       await axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            this.setState({
+                favItems: filtered
+            })
+        })
+        console.log(this.state.favItems)
+    }
+
 
 
     render() {
