@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Form, Button, Table } from "react-bootstrap";
-import { Carousel, Card } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+// import { Form, Button, Table } from "react-bootstrap";
+// import { Carousel } from "react-bootstrap";
+import { Table } from "react-bootstrap";
+import { withAuth0 } from "@auth0/auth0-react";
+
 class Teams extends Component {
   constructor(props) {
     super(props);
@@ -39,17 +39,29 @@ class Teams extends Component {
       });
     });
   };
-  componentDidMount = () => {
-    axios.get("https://www.scorebat.com/video-api/v3/").then((res) => {
-      let filteredData = res.data.response.filter(
-        (i) => res.data.response.indexOf(i) > 20
-      );
-      this.setState({
-        news: filteredData,
-      });
-      console.log(res.data.response);
-    });
-  };
+  // componentDidMount = () => {
+  //   axios.get("https://www.scorebat.com/video-api/v3/").then((res) => {
+
+  //     this.setState({
+  //       news: res.data.response,
+  //     });
+  //     console.log(res.data.response);
+  //   });
+  // };
+
+  handleCeateFav = async (name, imgUrl) => {
+
+    let config = await {
+      method: "POST",
+      url: `${process.env.REACT_APP_BACKEND}/createfav`,
+      data: {
+        name: name,
+        imgUrl: imgUrl,
+        userEmail: this.props.auth0.user.email,
+      }
+    }
+    axios(config)
+  }
   // ------------------------
   // handlenews = async (e) => {
   //     e.preventDefault();
@@ -119,6 +131,7 @@ class Teams extends Component {
                       />
                     </td>
                     <td>{i.venue.name}</td>
+                    <td><button onClick={() => this.handleCeateFav(i.team.name, i.team.logo)}>Add to favorites</button></td>
                   </tr>
                 </tbody>
               </>
@@ -127,10 +140,32 @@ class Teams extends Component {
         </Table>
         <br />
         {/* ----------------------------------------             */}
-      
+        {/* <Carousel>
+          {this.state.news.map((i, index) => {
+
+            return (
+              <>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src={i.thumbnail}
+                    alt="First slide"
+                    style={{ height: "500px" }}
+                  />
+                  <Carousel.Caption>
+                    <h3>{i.date}</h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </>
+            );
+
+          })}
+        </Carousel> */}
+
+
       </>
     );
   }
 }
 
-export default Teams;
+export default withAuth0(Teams);
