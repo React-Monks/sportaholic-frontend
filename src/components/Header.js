@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, NavItem } from 'react-bootstrap';
-import {  BrowserRouter as Router, } from "react-router-dom";
+import {  BrowserRouter as Router } from "react-router-dom";
 import LogoutButton from './LogoutButton';
 
 class Header extends Component {
@@ -11,6 +11,7 @@ class Header extends Component {
             <Navbar.Brand>sportoholic</Navbar.Brand>
             <NavItem><a href="/" className="nav-link">Home</a></NavItem>
             <NavItem><a href="/Football" className="nav-link" >Football</a></NavItem>
+            <NavItem><a href="/Aboutus" className="nav-link" >Aboutus</a></NavItem>
             {this.props.isAuth&&
             <LogoutButton/>
             }

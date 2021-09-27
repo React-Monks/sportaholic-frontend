@@ -10,9 +10,10 @@ ReactDOM.render(
     redirectUri='http://localhost:3000'
     useRefreshTokens={true}
     cacheLocation="localstorage"
-
   >
     <App />
   </Auth0Provider>,
+  
+
   document.getElementById("root")
 );

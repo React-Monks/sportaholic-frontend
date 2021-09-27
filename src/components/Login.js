@@ -3,39 +3,15 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Carousel from 'react-bootstrap/Carousel';
 import React, { Component } from "react";
-// import axios from "axios";
 import LoginButton from "./LoginButton";
-// import {Button,Card } from "react-bootstrap";
 
 class Login extends Component {
   
-  // -----------------------
-  // handlesports =async (e) => {
-  //   e.preventDefault();
-  //   // let config = {
-  //   //   method: "GET",
-  //   //   url: `http://localhost:8000/sports`
-  //   // };
-
-  //   await axios.get(`http://${process.env.REACT_APP_BACKENED_URL}/sports`).then((res) => {
-  //     this.setState({
-  //       sportsData: res.data,
-  //       // showData: true,
-  //     });
-  //     console.log(res.data)
-  //   })
-    
-  // };
-
-  // -----------------------------
   render() {
     
     return (
     
 <>
-
-
-
 <Container>
             <Row>
               <Col xs={6}>
