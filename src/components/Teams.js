@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {  Table } from "react-bootstrap";
-
+// import { Form, Button, Table } from "react-bootstrap";
+// import { Carousel } from "react-bootstrap";
+import { Table, Carousel,Col, Container, Row} from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 
 class Teams extends Component {
@@ -39,15 +40,7 @@ class Teams extends Component {
       });
     });
   };
-  // componentDidMount = () => {
-  //   axios.get("https://www.scorebat.com/video-api/v3/").then((res) => {
 
-  //     this.setState({
-  //       news: res.data.response,
-  //     });
-  //     console.log(res.data.response);
-  //   });
-  // };
 
   handleCeateFav = async (name, imgUrl) => {
 
@@ -67,22 +60,9 @@ class Teams extends Component {
       }
     }
     axios(config)
+    console.log(name)
   }
-  // ------------------------
-  // handlenews = async (e) => {
-  //     e.preventDefault();
-  //     let config = {
-  //         method: "GET",
-  //         url: "",
-
-  //     };
-  //     await axios(config).then((res) => {
-  //         this.setState({
-  //             news: res.data.articles,
-  //         });
-
-  //     });
-  // };
+  
   render() {
     return (
       <>
@@ -147,28 +127,91 @@ class Teams extends Component {
         </Table>
         <br />
         {/* ----------------------------------------             */}
-        {/* <Carousel>
-          {this.state.news.map((i, index) => {
-
-            return (
-              <>
+      
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <Carousel>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={i.thumbnail}
+                    src="https://www.realmadrid.com/StaticFiles/RealMadridResponsive/images/static/og-image.png"
                     alt="First slide"
-                    style={{ height: "500px" }}
                   />
                   <Carousel.Caption>
-                    <h3>{i.date}</h3>
+                    <h3>Real Madrid</h3>
                   </Carousel.Caption>
                 </Carousel.Item>
-              </>
-            );
-
-          })}
-        </Carousel> */}
-
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://pbs.twimg.com/media/EWl6qGgXQAAIBHv.jpg"
+                    alt="Second slide"
+                  />
+                  <Carousel.Caption>
+                    <h3>Manchester United</h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://i2-prod.mirror.co.uk/incoming/article796584.ece/ALTERNATES/s482b/298x198_Liverpool.jpg"
+                    alt="Third slide"
+                  />
+                  <Carousel.Caption>
+                    <h3>liverpool</h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+               {/* -------------------------- */}
+               <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://img.btolat.com/news/large/249180.jpg"
+                    alt="Third slide"
+                  />
+                  <Carousel.Caption>
+                    <h3>liverpool</h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://www.almrsal.com/wp-content/uploads/2020/10/1-70.jpg"
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://arabic.sport360.com/wp-content/uploads/2017/12/Juventus-Logo-20141589.png"
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://storage.googleapis.com/jarida-cdn/images/1607275005640810700/1607279110000/640x480.jpg"
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://www.aljazeera.net/wp-content/uploads/2017/12/217a7498-ac7e-4222-a919-ed8f3c326df0.jpeg?resize=686%2C513"
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="https://arabic.sport360.com/wp-content/uploads/2016/07/Borussia-Dortmund-Logo-203366998.jpg"
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+              </Carousel>
+            </Col>
+          </Row>
+        </Container>
 
       </>
     );
