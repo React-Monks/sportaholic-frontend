@@ -255,11 +255,12 @@ footer{height: 100px;}
 }
 
 .btn {
-  position: absolute;
+  /* position: absolute; */
   right: 165px;
   bottom: 688px;  border-radius: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   color: #ffffff;
+  background-color: chartreuse;
 
 }
   .btn::before {

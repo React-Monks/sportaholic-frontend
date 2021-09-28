@@ -112,7 +112,7 @@ class Football extends Component {
         
         <h3 className="tableID">Latest News</h3>
 
-        <Table className="tableID"  class="container">
+        <Table className="tableID"  >
           {this.state.news.map((i) => {
             return (
               <>
