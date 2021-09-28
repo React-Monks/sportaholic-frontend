@@ -22,6 +22,7 @@ class MyProfile extends Component {
             showForm: false,
             id: '',
             favItems: [],
+            players:[]
         }
     }
     //##########################################{Article}#######################################|
@@ -30,11 +31,24 @@ class MyProfile extends Component {
             method: "GET",
             url: `${process.env.REACT_APP_BACKEND}/article`,
         }
+        
         axios(config).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
             this.setState({
                 data: filtered
+            })
+        })
+        let favirets = {
+            method: "GET",
+            url: `${process.env.REACT_APP_BACKEND}/fav`,
+        }
+        axios(favirets).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            // let filteredPlayer=filtered.filter(item=> item.)
+            this.setState({
+                favItems: filtered
             })
         })
     }
@@ -90,19 +104,7 @@ class MyProfile extends Component {
     };
 
     //##########################################{fav}###########################################|
-    componentDidMount = () => {
-        let config = {
-            method: "GET",
-            url: `${process.env.REACT_APP_BACKEND}/fav`,
-        }
-        axios(config).then(res => {
-            let unFeltered = res.data;
-            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
-            this.setState({
-                favItems: filtered
-            })
-        })
-    }
+   
     handleFavDelete =async (id) => {
         let config  =await {
             method: "DELETE",
@@ -117,8 +119,8 @@ class MyProfile extends Component {
                 favItems: filtered
             })
         })
-        console.log(this.state.favItems)
     }
+    
 
 
 
@@ -146,7 +148,10 @@ class MyProfile extends Component {
                     <Col className="mb-5 mb-lg-0" lg="3" md="6" style={{ width: '50%' }}>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
                             <Tab eventKey="favorites" title="My Favorites" >
-                                {this.state.favItems.map(fav => {
+                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
+                            <Tab eventKey="team" title="My Team" >
+                            {this.state.favItems.map(fav => {
+                                
                                     return (<tbody>
                                         <tr>
                                             <th>
@@ -161,8 +166,15 @@ class MyProfile extends Component {
                                         </tr>
                                     </tbody>
                                     )
+                                
+                                
                                 })
                                 }
+                            </Tab>
+                            <Tab eventKey="players" title="Players" >
+                            </Tab>
+                        </Tabs>
+                                
                             </Tab>
                             <Tab eventKey="articles" title="My Articles">
                                 <table>

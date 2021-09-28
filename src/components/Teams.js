@@ -13,6 +13,7 @@ class Teams extends Component {
       leagueID: 0,
       teamName: "",
       news: [],
+      
     };
   }
 
@@ -61,6 +62,8 @@ class Teams extends Component {
         name: name,
         imgUrl: imgUrl,
         userEmail: this.props.auth0.user.email,
+        type:"team"
+
       }
     }
     axios(config)
