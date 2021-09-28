@@ -88,4 +88,5 @@ MongoDB
 
 # Resources:
 
-1. https://www.youtube.com/watch?v=cPKiilXlHAQ
+1. https://www.youtube.com/watch?v=cPKiilXlHAQ (css card)
+2. https://www.designevo.com/apps/logo/?name=blue-wing-and-black-football (logo)
