@@ -12,11 +12,13 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "framer-motion": "^4.1.17",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^2.0.4",
     "lightning-client": "^0.5.2-beta.8",
     "mongoose": "^6.0.7",
     "newsapi": "^2.4.1",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
     "react-dom": "^17.0.2",
@@ -24,6 +26,7 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "reactstrap": "^8.10.0",
+    "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

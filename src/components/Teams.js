@@ -96,12 +96,15 @@ class Teams extends Component {
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-
-              <th></th>
+              <th>Logo</th>
+              <th>Name</th>
+              <th>country</th>
+              <th>Since</th>
+              <th>Stadium capacity</th>
+              <th>City</th>
+              <th>Stadium</th>
+              <th>Stadium Name</th>
+              <th>Favorites</th>
             </tr>
           </thead>
           {this.state.dataTeams.map((i) => {
