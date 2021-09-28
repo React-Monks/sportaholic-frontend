@@ -41,7 +41,7 @@ class MyProfile extends Component {
     componentDidMount = () => {
         let config = {
             method: "GET",
-            url: `${process.env.REACT_APP_BACKEND}//fav`,
+            url: `${process.env.REACT_APP_BACKEND}/fav`,
         }
         axios(config).then(res => {
             let unFeltered = res.data;
