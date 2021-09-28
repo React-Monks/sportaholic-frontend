@@ -86,9 +86,7 @@ DataBase
 
 MongoDB
 
-----------------------------
+# Resources:
 
-* ***Resources*** :
-
-
-   *  https://www.designevo.com/apps/logo/?name=blue-wing-and-black-football
+1. https://www.youtube.com/watch?v=cPKiilXlHAQ (css card)
+2. https://www.designevo.com/apps/logo/?name=blue-wing-and-black-football (logo)

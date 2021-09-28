@@ -1,8 +1,22 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { Card, Button, Row, Col, Container, Table } from "react-bootstrap";
+//###################################
+
+import "./League.css";
+import styled from "styled-components";
+import { NikeCard } from "./nikeCard";
+
+const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+
 
 class Football extends Component {
   constructor(props) {
@@ -13,28 +27,11 @@ class Football extends Component {
       leagueID: 0,
       date: "",
       news: [],
-      
+
     };
   }
-  handleFootballLive = async (e) => {
-    e.preventDefault();
-    await this.setState({
-      leagueID: e.target.value,
-      
-    });
-  };
 
-  componentDidMount = () => {
-    let config = {
-      method: "GET",
-      url: `${process.env.REACT_APP_BACKEND}/article`,
-    };
-    axios(config).then((res) => {
-      this.setState({
-        data: res.data,
-      });
-    });
-  };
+
 
   handleArticleSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +42,8 @@ class Football extends Component {
         userName: this.props.auth0.user.name,
         userEmail: this.props.auth0.user.email,
         text: e.target.article.value,
-      },
+        title: e.target.title.value
+      }
     };
     axios(config).then((res) => {
       this.setState({
@@ -63,102 +61,58 @@ class Football extends Component {
           news: res.data.articles,
         });
       });
+    let config = {
+      method: "GET",
+      url: `${process.env.REACT_APP_BACKEND}/article`,
+    };
+    axios(config).then((res) => {
+      this.setState({
+        data: res.data,
+      });
+    });
   };
   render() {
     return (
       <>
-        <Container>
-          <Row>
-            <Col>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://media.api-sports.io/football/leagues/2.png"
-                />
-                <Card.Body>
-                  <Card.Title>"UEFA Champions League"</Card.Title>
-                  <Link to={`/league/2`}>
-                    <Button renderAs="button">
-                      <span>Fixture</span>
-                    </Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://media.api-sports.io/football/leagues/39.png"
-                />
-                <Card.Body>
-                  <Card.Title>"Premier League"</Card.Title>
-                  <Link to={`/league/39`}>
-                    <Button renderAs="button">
-                      <span>Fixture</span>
-                    </Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://media.api-sports.io/football/leagues/140.png"
-                />
-                <Card.Body>
-                  <Card.Title>La Liga</Card.Title>
-                  <Link to={`/league/140`}>
-                    <Button renderAs="button">
-                      <span>Fixture</span>
-                    </Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://media.api-sports.io/football/leagues/78.png"
-                />
-                <Card.Body>
-                  <Card.Title>Bundesliga 1</Card.Title>
-                  <Link to={`/league/78`}>
-                    <Button renderAs="button">
-                      <span>Fixture</span>
-                    </Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-        <h2>Users articles</h2>
-        <table>
-          {this.state.data.map((article) => {
-            return (
-              <tr>
-                <th>{article.userName}</th>
-                <th>{article.text}</th>
-              </tr>
-            );
-          })}
-        </table>
-        <form
-          onSubmit={(e) => {
-            this.handleArticleSubmit(e);
-          }}
-        >
-          <label>Write down your article</label>
-          <br />
-          <textarea rows="4" cols="50" name="article" />
-          <br />
-          <input type="submit" />
-        </form>
+        <div className="row">
+          <Col>
+            <AppContainer>
+              <NikeCard imgUrl="https://media.api-sports.io/football/leagues/2.png"
+                leagueName="UEFA Champions League"
+                link="/league/2" />
+            </AppContainer>
+          </Col>
+          <Col>
+            <AppContainer>
+              <NikeCard imgUrl="https://media.api-sports.io/football/leagues/39.png"
+                leagueName="Premier League"
+                link="/league/39" />
+            </AppContainer>
+          </Col>
+          <Col>
+            <AppContainer>
+              <NikeCard imgUrl="https://media.api-sports.io/football/leagues/140.png"
+                leagueName="La Liga"
+                link="/league/140" />
+            </AppContainer>
+          </Col>
+          <Col>
+            <AppContainer>
+              <NikeCard imgUrl="https://media.api-sports.io/football/leagues/78.png"
+                leagueName="Bundesliga 1"
+                link="/league/78" />
+            </AppContainer>
+          </Col>
+        </div>
+
+
         {/* ------------------------------- */}
-        <Table striped bordered hover>
+
+
+        
+        <h3 className="tableID">Latest News</h3>
+
+        <Table className="tableID"  >
           {this.state.news.map((i) => {
             return (
               <>
@@ -170,17 +124,64 @@ class Football extends Component {
                         //   className="d-block w-100"
                         src={i.urlToImage}
                         alt="logo"
-                        width="90"
-                        height="90"
+                        width="150"
+                        height="150"
                       />
                     </td>
-                    <td><b>{i.title}</b><br/>{i.content}</td>
+                    <td><b>{i.title}</b><br />{i.content}</td>
                   </tr>
                 </tbody>
               </>
             );
           })}
+        
+        <tr style={{width:"100%"}}>
+          <td colSpan="2">
+        <h2>Users articles</h2>
+        </td>
+        </tr>
+          {this.state.data.map((article) => {
+            return (
+              <tr>
+                <th>{article.userName}</th>
+                <td><b>{article.title}</b><br />{article.text}</td>
+              </tr>
+            );
+          })}
+        
+
         </Table>
+      
+{/* #################################################### */}
+
+
+
+{/* ########################################## */}
+        <div class="login-box">
+          <h2>Write Article</h2>
+          <form  onSubmit={(e) => {
+            this.handleArticleSubmit(e);
+          }}>
+            <div class="user-box">
+              <input type="text" name="title" required />
+              <label>Title</label>
+            </div>
+            <div class="user-box">
+              <input type="text" name="article" required />
+              <label>Article</label>
+            </div>
+            
+            <a>
+            <input id="submitBTN" type="submit"/>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              
+            </a>
+            
+          </form>
+        </div>
       </>
     );
   }
