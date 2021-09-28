@@ -15,13 +15,18 @@ import Teams from "./components/Teams";
 import Players from "./components/Players";
 import Fitness from "./components/Fitness";
 import MyProfile from "./components/MyProfile";
+// import img from "../img/pexel.jpg";
 
 class App extends Component {
   render() {
 
     return (
       <>
-        <Header isAuth={this.props.auth0.isAuthenticated} />
+        <Header  isAuth={this.props.auth0.isAuthenticated}  
+        
+        // styles={{ backgroundImage: `url(${img})` }}
+        
+        />
         <Router>
           <Switch>
             {this.props.auth0.isAuthenticated ? (

@@ -22,13 +22,16 @@ class MyProfile extends Component {
             showForm: false,
             id: '',
             favItems: [],
+            players:[]
         }
     }
+    //##########################################{Article}#######################################|
     componentDidMount = () => {
         let config = {
             method: "GET",
             url: `${process.env.REACT_APP_BACKEND}/article`,
         }
+        
         axios(config).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
@@ -36,43 +39,19 @@ class MyProfile extends Component {
                 data: filtered
             })
         })
-    }
-
-    componentDidMount = () => {
-        let config = {
+        let favirets = {
             method: "GET",
             url: `${process.env.REACT_APP_BACKEND}/fav`,
         }
-        axios(config).then(res => {
+        axios(favirets).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            // let filteredPlayer=filtered.filter(item=> item.)
             this.setState({
                 favItems: filtered
             })
         })
     }
-    handleFavDelete = (id) => {
-        let config = {
-            method: "DELETE",
-            baseURL: process.env.REACT_APP_BACKEND,
-            url: `/deletefav/${id}`,
-        }
-
-        axios(config).then(res => {
-            let unFeltered = res.data;
-            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
-            this.setState({
-                data: filtered
-            })
-        })
-    }
-    handleUpdate = (text, id) => {
-        this.setState({
-            showForm: true,
-            text: text,
-            id: id,
-        });
-    };
 
     handleUpdatedForm = async (e) => {
         e.preventDefault();
@@ -116,6 +95,34 @@ class MyProfile extends Component {
 
     }
 
+    handleUpdate = (text, id) => {
+        this.setState({
+            showForm: true,
+            text: text,
+            id: id,
+        });
+    };
+
+    //##########################################{fav}###########################################|
+   
+    handleFavDelete =async (id) => {
+        let config  =await {
+            method: "DELETE",
+            baseURL: process.env.REACT_APP_BACKEND,
+            url: `/deletefav/${id}`,
+        }
+
+       await axios(config).then(res => {
+            let unFeltered = res.data;
+            let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            this.setState({
+                favItems: filtered
+            })
+        })
+    }
+    
+
+
 
     render() {
         return (
@@ -141,7 +148,10 @@ class MyProfile extends Component {
                     <Col className="mb-5 mb-lg-0" lg="3" md="6" style={{ width: '50%' }}>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
                             <Tab eventKey="favorites" title="My Favorites" >
-                                {this.state.favItems.map(fav => {
+                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
+                            <Tab eventKey="team" title="My Team" >
+                            {this.state.favItems.map(fav => {
+                                
                                     return (<tbody>
                                         <tr>
                                             <th>
@@ -156,8 +166,15 @@ class MyProfile extends Component {
                                         </tr>
                                     </tbody>
                                     )
+                                
+                                
                                 })
                                 }
+                            </Tab>
+                            <Tab eventKey="players" title="Players" >
+                            </Tab>
+                        </Tabs>
+                                
                             </Tab>
                             <Tab eventKey="articles" title="My Articles">
                                 <table>

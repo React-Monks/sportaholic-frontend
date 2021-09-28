@@ -14,6 +14,7 @@ class Teams extends Component {
       leagueID: 0,
       teamName: "",
       news: [],
+      
     };
   }
 
@@ -30,7 +31,7 @@ class Teams extends Component {
       // qs: { id: "33" },
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "896f2cddb7c7d8ebc3289460d4835b83",
+        "x-rapidapi-key": process.env.REACT_APP_APIFOOTBAL,
       },
     };
     await axios(config).then((res) => {
@@ -45,11 +46,17 @@ class Teams extends Component {
 
     let config = await {
       method: "POST",
-      BaseUrl: `${process.env.REACT_APP_BACKEND}/createfav`,
+      url: `${process.env.REACT_APP_BACKEND}/createfav`,
+      headers: {
+        "x-rapidapi-host": "v3.football.api-sports.io",
+        "x-rapidapi-key": process.env.REACT_APP_APIFOOTBAL,
+      },
       data: {
         name: name,
         imgUrl: imgUrl,
         userEmail: this.props.auth0.user.email,
+        type:"team"
+
       }
     }
     axios(config)
@@ -110,6 +117,7 @@ class Teams extends Component {
                       />
                     </td>
                     <td>{i.venue.name}</td>
+                    {" "}
                     <td><button onClick={() => this.handleCeateFav(i.team.name, i.team.logo)}>Add to favorites</button></td>
                   </tr>
                 </tbody>

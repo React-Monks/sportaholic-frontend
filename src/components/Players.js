@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import Col from "react-bootstrap/Col";
 // import Container from "react-bootstrap/Container";
 // import Carousel from 'react-bootstrap/Carousel';
+import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 class Players extends Component {
@@ -30,7 +31,7 @@ class Players extends Component {
       // qs: { id: "33" },
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "896f2cddb7c7d8ebc3289460d4835b83",
+        "x-rapidapi-key": process.env.REACT_APP_APIFOOTBAL,
       },
     };
     await axios(config).then((res) => {
@@ -40,6 +41,24 @@ class Players extends Component {
       console.log(res.data);
     });
   };
+  handleCeateFav = async (name, imgUrl) => {
+
+    let config = await {
+      method: "POST",
+      url: `${process.env.REACT_APP_BACKEND}/createfav`,
+      headers: {
+        "x-rapidapi-host": "v3.football.api-sports.io",
+        "x-rapidapi-key": process.env.REACT_APP_APIFOOTBAL,
+      },
+      data: {
+        name: name,
+        imgUrl: imgUrl,
+        userEmail: this.props.auth0.user.email,
+        type:"player"
+      }
+    }
+    axios(config)
+  }
   render() {
     return (
       <>
@@ -103,6 +122,7 @@ class Players extends Component {
                         height="90"
                       />
                     </td>
+                    <td><button onClick={() => this.handleCeateFav(i.player.name, i.player.photo)}>Add to favorites</button></td>
                   </tr>
                 </tbody>
               </>
@@ -146,4 +166,4 @@ class Players extends Component {
   }
 }
 
-export default Players;
+export default withAuth0(Players);

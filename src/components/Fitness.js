@@ -30,8 +30,8 @@ class Fitness extends Component {
             method: "POST",
             url: "https://trackapi.nutritionix.com/v2/natural/exercise",
             headers: {
-                "x-app-key": "5877104300b2c0e3213847b2fa2877c0",
-                "x-app-id": "3b2968c4",
+                "x-app-key": process.env.REACT_APP_NUTRITIONIX_KEY,
+                "x-app-id": process.env.REACT_APP_NUTRITIONIX_ID 
             },
             data: {
                 "query": this.state.query,
@@ -57,8 +57,8 @@ class Fitness extends Component {
             method: "POST",
             url: "https://trackapi.nutritionix.com/v2/natural/nutrients",
             headers: {
-                "x-app-key": "5877104300b2c0e3213847b2fa2877c0",
-                "x-app-id": "3b2968c4",
+                "x-app-key": process.env.REACT_APP_NUTRITIONIX_KEY,
+                "x-app-id": process.env.REACT_APP_NUTRITIONIX_ID
             },
             data: {
                 "query": foodName,
