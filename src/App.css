@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+body{
+  font-family: 'Bree Serif', serif;
+}
 .homepageImgs {
   height: 200px;
   background-size: cover;
@@ -51,11 +56,11 @@ footer{height: 100px;}
 #header{
   
     background-image: url("./components/img/young-caucasian-male-football-soccer-player-kicking-ball-goal-mixed-light-dark-wall-concept-healthy-lifestyle-professional-sport-hobby.jpg") ; 
-    opacity:0.89;
+    /* opacity:0.89; */
     width: 100%;
-    height: 550px;
-    background-size: 100% 100%;
-    margin-top: 49px;
+    height: 800px;
+    background-size: cover;
+    margin-top: 0;
 
 
 }
@@ -67,8 +72,7 @@ footer{height: 100px;}
 
 .container{
   position: absolute;
-  top: -29px;
-  right: -550px;
+  top: -93px;  right: -550px;
 
 
   border: none;
@@ -138,41 +142,7 @@ footer{height: 100px;}
   background-color: #f44336; /* Red */
 }
 
-/* #contact {
-  top: 200px;
-  background-color: #555 /* Light Black */
-/* }  */
 
-
-/* .button{
-  
-  padding: 8px 20px;
-  border-radius: 0;
-  overflow: hidden;
-  &::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      var(--primary-color),
-      transparent
-    );
-    transform: translateX(-100%);
-    transition: 0.6s;
-  }
-  &:hover {
-    background: transparent;
-    box-shadow: 0 0 20px 10px hsla(204, 70%, 53%, 0.5);
-    &::before {
-      transform: translateX(100%);
-    }
-  }
-} */
 
 /* Dropup Button */
 .dropbtn {
@@ -250,12 +220,12 @@ footer{height: 100px;}
   /* flex-wrap: wrap; */
   align-items: end;
   justify-content:left;
-  padding-top: 1.5rem;
-    /* padding-bottom: .5rem; */
+  padding-top: 3.5rem;
+  /* padding-bottom: .5rem; */
 }
 
 .btn {
-  /* position: absolute; */
+  position: absolute;
   right: 165px;
   bottom: 688px;  border-radius: 0;
   /* overflow: hidden; */
@@ -286,3 +256,221 @@ footer{height: 100px;}
       transform: translateX(100%);
     }
  
+.slider{
+  margin-top: 766px;
+  right: -82px;
+  /* display: inline; */
+}
+
+header{
+   overflow: hidden;
+ }
+
+ .carousel{
+  width: 800px;
+}
+/* ---------------------------- */
+.footer{
+  background-color: black;
+  width: 100%;
+  height: 250px;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  place-items: center;
+  background: linear-gradient(315deg, #ffffff, #d7e1ec);
+}
+
+.wrapper {
+  display: inline-flex;
+}
+
+.wrapper .icon {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background-color: #3b5999;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background-color: #46c1f6;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background-color: #e1306c;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background-color: #de463b;
+  color: #ffffff;
+}
+
+
+/* ----------------------------about us */
+
+.firstSec{
+       
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.firstSec h2{
+
+font-size: 50px;
+color: white;
+
+position: relative;
+top: -39px;
+}
+
+.firstSec p{
+
+
+  font-size: 35px;
+  color: white;
+  
+  position: relative;
+  top: -100px;
+}
+
+
+
+
+
+
+.secondSec{
+margin: auto;
+display: flex;
+width: 1050px;
+margin-top: -250px;
+flex-basis: 33.33%;
+flex-wrap: wrap;
+background-color: transparent;
+justify-content: center;
+gap: 120px;
+}
+
+
+.card {
+
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+border-radius: 5px;
+
+width: 260px;
+}
+
+
+.card:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+transform: scale(1.15)
+}
+
+
+.container {
+padding: 2px 16px;
+right: -45px;
+
+}
+.card img{
+border-radius: 5px;
+object-fit: cover;
+width: 300px;
+height: 300px;
+}
+

@@ -7,7 +7,7 @@ import LoginButton from "./LoginButton";
 class Login extends Component {
   render() {
     return (
-      <>
+      <section className="header" id="header">
         <Container>
           <Row>
             <Col xs={6}>
@@ -147,7 +147,7 @@ class Login extends Component {
         </Container>  */}
 
         <LoginButton />
-      </>
+      </section>
     );
   }
 }

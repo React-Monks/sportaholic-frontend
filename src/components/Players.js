@@ -62,9 +62,10 @@ class Players extends Component {
   render() {
     return (
       <>
-        <form onSubmit={(e) => this.handlePlayers(e)}>
-          <input type="text"></input>
-          <input type="submit"></input>
+        <form   className="login-box" onSubmit={(e) => this.handlePlayers(e)}>
+        <div class="user-box">
+          <input type="text"></input></div>
+          <input id="submitBTN"  value="Search" type="submit"></input>
         </form>
         {/* -------------------table */}
 
