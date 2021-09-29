@@ -4,10 +4,11 @@ import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import React, { Component } from "react";
 import LoginButton from "./LoginButton";
+
 class Login extends Component {
   render() {
     return (
-      <section className="header" >
+      <section id="header" >
         <Container>
           <Row>
             <Col xs={6}>
