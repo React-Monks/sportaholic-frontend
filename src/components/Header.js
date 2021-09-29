@@ -2,47 +2,23 @@ import React, { Component } from "react";
 import { Navbar, NavItem } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
-import {   Nav,Dropdown } from "react-bootstrap";
 
 class Header extends Component {
 
   render() {
     return (
       <>
-        {/* <section >
-          <Router>
-            <Navbar>
-              <Navbar.Brand></Navbar.Brand>
-              <NavItem>
-                <a href="/" className="nav-link" id="home">
-                  Home
-                </a>
-              </NavItem>
-              <NavItem>
-                <a href="/MyProfile" className="nav-link" id="profile">
-                  Profile
-                </a>
-              </NavItem>
-              <NavItem>
-                <a href="/Aboutus" className="nav-link" id="aboutus">
-                  About us
-                </a>
-              </NavItem>
-             
-              {this.props.isAuth && <LogoutButton />}
-            </Navbar>
-          </Router>
-        </section> */}
         
-        <div id="navbar">
+        
+        <div id="header">
           <Router>
             <Navbar>
               <Navbar.Brand></Navbar.Brand>
               {/* ---------------------- */}
-          
+              <div id="mySidenav" class="sidenav">
 
               <NavItem>
-                <a href="/" className="nav-link" id="home">
+                <a href="/"  className="nav-link" id="home">
                   Home
                 </a>
               </NavItem>
@@ -53,10 +29,10 @@ class Header extends Component {
               </NavItem>
               <NavItem>
                 <a href="/Aboutus" className="nav-link" id="aboutus">
-                  About us
+                  About-us
                 </a>
               </NavItem>
-             
+             </div>
               {this.props.isAuth && <LogoutButton />}
               {/* ---------------------- */}
               {/* <NavItem>
@@ -64,6 +40,10 @@ class Header extends Component {
                   Fitness
                 </a>
               </NavItem> */}
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
               <NavItem>
                 <a href="/players" className="nav-link" id="players">
                   Players
@@ -79,6 +59,9 @@ class Header extends Component {
                   Teams
                 </a>
               </NavItem>
+              
+              </div>
+              </div>
             </Navbar>
             {/* ------------------- */}
             
