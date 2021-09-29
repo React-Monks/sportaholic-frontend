@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+
 import { Col, Table } from "react-bootstrap";
-//###################################
+
 
 import "./League.css";
 import styled from "styled-components";
@@ -157,7 +158,7 @@ class Football extends Component {
 
 
 {/* ########################################## */}
-        <div class="login-box">
+        <div className="login-box">
           <h2>Write Article</h2>
           <form  onSubmit={(e) => {
             this.handleArticleSubmit(e);
