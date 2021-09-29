@@ -1,7 +1,13 @@
 
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Col } from 'react-bootstrap';
+import { Col,Row,Nav } from 'react-bootstrap';
+import {Tabs} from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab'
+import TabContent from 'react-bootstrap/TabContent'
+import TabPane from 'react-bootstrap/TabPane'
+import TabContainer from 'react-bootstrap/TabContainer';
+
 
 class Fitness extends Component {
 
@@ -76,6 +82,7 @@ class Fitness extends Component {
         let food = this.state.foodData;
         return (
             <>
+            <div className="fitnessDiv">
 <div className="row">
     <Col>
                         <div className="login-box" id="tableMargin">
@@ -103,7 +110,7 @@ class Fitness extends Component {
                                     <input type="text" name="age" required />
                                     <label>Age</label>
                                 </div>
-                                <a >
+                                <a>
                                     <input id="submitBTN" type="submit" />
                                     <span></span>
                                     <span></span>
@@ -208,8 +215,53 @@ class Fitness extends Component {
                 }
                 </Col>
                 </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CO-Mvpl0QUY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+{/* -------------------------- */}
+<Tab.Container id="left-tabs-example" defaultActiveKey="first">
+  <Row>
+    <Col sm={3}>
+      <Nav variant="pills" className="flex-column">
+        <Nav.Item>
+          <Nav.Link eventKey="first">Tab 1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="second">Tab 2</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="third">Tab 1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="fourth">Tab 1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="fifth">Tab 1</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Col>
+    <Col sm={3}>
+      <Tab.Content>
+        <Tab.Pane eventKey="first">
+        FOOTBALL PLAYERS WITH HEALTHY HABITS KNOW THEY WILL FAIL A LOT
+“Ever tried. Ever failed. No Matter. Try Again. Fail again. Fail better.” – Samuel Beckett        </Tab.Pane>
+        <Tab.Pane eventKey="second">
+        THEY ARE CONSISTENT
+You need to try, fail, and then try again. But, you can’t just do it on one day. You need to do it consistently.       </Tab.Pane>
+<Tab.Pane eventKey="third">
+THEY STRETCH AND WARM-UP WELL
+This is one of the healthy habits of football players that young players often ignore.
 
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/CO-Mvpl0QUY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+Warming up and stretching well is the most underestimated pre-match and pre-training routine out there. It’s also one of the healthy habits of football players that if done wrong hurts players rather than helping them.    </Tab.Pane>
+<Tab.Pane eventKey="fourth">
+THEY KNOW THERE’S ALWAYS MORE TO LEARN
+This is one of the healthy habits of football players that allowed players such as Ronaldo to maintain at such a high level at the age of 34.        </Tab.Pane>
+<Tab.Pane eventKey="fifth">
+THEY SLEEP RIGHT
+We all love to sleep in the morning, but when we have a choice over watching Netflix or going to bed at the right time, in most cases, most of us will choose Netflix.        </Tab.Pane>
+      </Tab.Content>
+    </Col>
+  </Row>
+</Tab.Container>
+</div>
             </>
 
         )

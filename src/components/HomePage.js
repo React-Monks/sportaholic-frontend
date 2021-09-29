@@ -10,8 +10,8 @@ class HomePage extends Component {
   render() {
     return (
       <>
-        <h3 style={{ marginLeft: "45%" }}>Sports</h3>
-
+        <h3 style={{ marginLeft: "45%" }}></h3>
+<div className="homeCards">
         <span className="homePageSpan">
           <Card style={{ width: "18rem", margin: "30%" }}>
             <Card.Title>Legues</Card.Title>
@@ -66,6 +66,7 @@ class HomePage extends Component {
               <img src={fitness} className="fitness" alt="" />
             </a>
           </span>
+        </div>
         </div>
       </>
     );
