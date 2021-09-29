@@ -11,9 +11,9 @@ class Aboutus extends React.Component {
   render() {
     return (
       <>
+
          <section class="firstSec">
             <p>Our Great Team </p>
-
 
         </section>
 

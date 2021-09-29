@@ -17,7 +17,7 @@ class Players extends Component {
     e.preventDefault();
 
     await this.setState({
-      playerName: e.target[0].value,
+      playerName: e.target.playerName.value,
     });
     console.log(e.target[0]);
     let config = await {
@@ -58,11 +58,34 @@ class Players extends Component {
   render() {
     return (
       <>
-        <form   className="login-box" onSubmit={(e) => this.handlePlayers(e)}>
-        <div class="user-box">
-          <input type="text"></input></div>
-          <input id="submitBTN"  value="Search" type="submit"></input>
-        </form>
+
+        {/* <form onSubmit={(e) => this.handlePlayers(e)}>
+          <input type="text"></input>
+          <input type="submit"></input>
+        </form> */}
+
+        <div className="login-box">
+          <h2>Player name</h2>
+          <form  onSubmit={(e) => {
+            this.handlePlayers(e);
+          }}>
+            <div className="user-box">
+              <input type="text" name="playerName" required />
+              <label>Name</label>
+            </div>
+            
+            <a href="nothinf">
+            <input id="submitBTN" type="submit"/>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              
+            </a>
+            
+          </form>
+        </div>
+
         {/* -------------------table */}
 
         <Table striped bordered hover variant="dark">
@@ -79,6 +102,7 @@ class Players extends Component {
               <th>Weight</th>
               <th>Height</th>
               <th>Team Name</th>
+              <th>Team logo</th>
               <th></th>
             </tr>
           </thead>

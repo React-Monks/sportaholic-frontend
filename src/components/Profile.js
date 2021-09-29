@@ -23,12 +23,12 @@ class Profile extends Component {
                 id="name"
               ></input>
               <br />
-              <label class="gender" for="male">
+              <label className="gender" for="male">
                 male
               </label>
               <input type="radio" id="male" required name="gender"></input>
               <br />
-              <label class="gender" for="female">
+              <label className="gender" for="female">
                 female
               </label>
               <input type="radio" id="female" required name="gender"></input>
