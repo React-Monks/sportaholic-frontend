@@ -7,7 +7,7 @@ import {
     Tabs,
     Tab,
     Modal,
-    Button
+    
 
 } from 'react-bootstrap'
 import axios from 'axios';
@@ -20,6 +20,7 @@ class MyProfile extends Component {
         this.state = {
             data: [],
             text: '',
+            title: '',
             showForm: false,
             id: '',
             favItems: [],
@@ -69,8 +70,12 @@ class MyProfile extends Component {
         e.preventDefault();
         await this.setState({
             text: e.target.text.value,
+            title: e.target.title.value,
             showForm: false,
         })
+
+        console.log(this.state.title)
+
         let config = await {
             method: "PUT",
             baseURL: `${process.env.REACT_APP_BACKEND}`,
@@ -78,8 +83,10 @@ class MyProfile extends Component {
             data: {
                 userName: this.props.auth0.user.name,
                 userEmail: this.props.auth0.user.email,
-                text: this.state.text
+                text: this.state.text,
+                title:this.state.title
             }
+            
         }
 
         axios(config).then(res => {
@@ -152,9 +159,9 @@ class MyProfile extends Component {
 
         return (
             <Container>
-                <Row>
+                <div className="row">
                     <Col className="mb-5 mb-lg-0" lg="3" md="6">
-                        <div className="px-4">
+                        <div className="px-40">
                             <img
                                 alt="..."
                                 className="rounded-circle img-center img-fluid shadow shadow-lg--hover"
@@ -187,7 +194,10 @@ class MyProfile extends Component {
                                                         {fav.name}
                                                     </th>
                                                     <th>
-                                                        <button onClick={() => this.handleFavDelete(fav._id)}>DELETE</button>
+
+                                                        <button id="buttonFAV" className="noselect" onClick={() => this.handleFavDelete(fav._id)}><span class='text'>Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" /></svg></span></button>
+
+
                                                     </th>
                                                 </tr>
                                             </tbody>
@@ -210,7 +220,7 @@ class MyProfile extends Component {
                                                         {fav.name}
                                                     </th>
                                                     <th>
-                                                        <button onClick={() => this.handleFavDelete(fav._id)}>DELETE</button>
+                                                        <button id="buttonFAV" className="noselect" onClick={() => this.handleFavDelete(fav._id)}><span class='text'>Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" /></svg></span></button>
                                                     </th>
                                                 </tr>
                                             </tbody>
@@ -232,43 +242,68 @@ class MyProfile extends Component {
                                                 <th>
                                                     {article.userName}
                                                 </th>
-                                                <th>
+                                                <th>Title: {" "}
+                                                    {article.title}
+                                                    <br />Article:  {" "}
                                                     {article.text}
                                                 </th>
                                                 <th>
-                                                    <button onClick={() => this.handleDelete(article._id)}>DELETE</button>
+
+                                                    <div style={{ textAlign: "center", marginTop: "5%" }}>
+                                                        <div style={{ textAlign: "center", marginTop: "30px" }}>
+                                                            <hr class="main-hr" />
+                                                            <button class="icon-btn add-btn" onClick={() => this.handleDelete(article._id)}>
+                                                                <div class="btn-txt">Remove</div>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+
+
                                                 </th>
                                                 <th>
-                                                    <button onClick={() => this.handleUpdate(article.text, article._id)}>
-                                                        Edit article
-                                                    </button>
-
-                                                    <Modal show={this.state.showForm} onHide={() => this.setState({ showForm: false })}>
-                                                        <Modal.Header closeButton>
-                                                            <Modal.Title>update</Modal.Title>
-                                                        </Modal.Header>
-                                                        <Modal.Body><form onSubmit={(e) => this.handleUpdatedForm(e)} >
-                                                            <textarea name="text" />
-                                                            <Button variant="primary" type="submit">
-                                                                Save Changes
-                                                            </Button>
-                                                        </form></Modal.Body>
-                                                        <Modal.Footer>
 
 
-                                                        </Modal.Footer>
-                                                    </Modal>
+                                                    <div style={{ textAlign: "center", marginTop: "5%" }}>
+                                                        <div style={{ textAlign: "center", marginTop: "30px" }}>
+                                                            <hr className="main-hr" />
+                                                            <button className="icon-btn add-btn" onClick={() => this.handleUpdate(article.text, article._id)}>
+                                                                <div className="add-icon"></div>
+                                                                <div className="btn-txt">Edit</div>
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </th>
                                             </tr>
                                         </tbody>)
-
                                     })
                                     }
                                 </table>
                             </Tab>
                         </Tabs>
                     </Col>
-                </Row>
+                </div>
+
+                <Modal show={this.state.showForm} onHide={() => this.setState({ showForm: false })}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Update</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                        <form onSubmit={(e) => this.handleUpdatedForm(e)} >
+                            Title: <input type="text" name="title" />
+                            <br />
+                            Articale: <textarea name="text" style={{ width: "100%" }} />
+                            <button className="editButton" variant="primary" type="submit">
+                                Save Changes
+                            </button>
+                        </form>
+                    </Modal.Body>
+
+                    <Modal.Footer>
+
+                    </Modal.Footer>
+                </Modal>
             </Container>
         )
     }
