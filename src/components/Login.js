@@ -7,29 +7,12 @@ import LoginButton from "./LoginButton";
 class Login extends Component {
   render() {
     return (
-      <section className="header" id="header">
+      <section className="header" >
         <Container>
           <Row>
             <Col xs={6}>
               <Carousel style={{ color: " #9e9e9e" }}>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    // src="https://images.unsplash.com/photo-1580153111806-5007b971dfe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                    alt="Third slide"
-                    width="90"
-                    height="400"
-                    background-color="#E6DEDD"
-                  />
-
-                  <Carousel.Caption>
-                    <h3 style={{ color: " #9e9e9e" }}>
-                      During every game, Football players run an average of 9.65
-                      km.
-                    </h3>
-                    {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>  */}
-                  </Carousel.Caption>
-                </Carousel.Item>
+              
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
