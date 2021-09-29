@@ -13,6 +13,7 @@ import {
 import axios from 'axios';
 
 
+
 class MyProfile extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +23,8 @@ class MyProfile extends Component {
             showForm: false,
             id: '',
             favItems: [],
-            players:[]
+            players: [],
+            teams: []
         }
     }
     //##########################################{Article}#######################################|
@@ -31,7 +33,7 @@ class MyProfile extends Component {
             method: "GET",
             url: `${process.env.REACT_APP_BACKEND}/article`,
         }
-        
+
         axios(config).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
@@ -46,9 +48,19 @@ class MyProfile extends Component {
         axios(favirets).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
-            // let filteredPlayer=filtered.filter(item=> item.)
+            let findteam = []
+            filtered.map(item => {
+                return (item.type === "team" && findteam.push(item))
+            })
+            let findplayer = []
+            filtered.map(item => {
+                return (item.type === "player" && findplayer.push(item))
+            })
             this.setState({
-                favItems: filtered
+                favItems: filtered,
+                teams: findteam,
+                players: findplayer
+
             })
         })
     }
@@ -88,8 +100,11 @@ class MyProfile extends Component {
         axios(config).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+
             this.setState({
-                data: filtered
+                favItems: filtered,
+
+
             })
         })
 
@@ -104,27 +119,37 @@ class MyProfile extends Component {
     };
 
     //##########################################{fav}###########################################|
-   
-    handleFavDelete =async (id) => {
-        let config  =await {
+
+    handleFavDelete = async (id) => {
+        let config = await {
             method: "DELETE",
             baseURL: process.env.REACT_APP_BACKEND,
             url: `/deletefav/${id}`,
         }
 
-       await axios(config).then(res => {
+        await axios(config).then(res => {
             let unFeltered = res.data;
             let filtered = unFeltered.filter(item => item.userEmail === this.props.auth0.user.email)
+            let findteam = []
+            filtered.map(item => {
+                return (item.type === "team" && findteam.push(item))
+            })
+            let findplayer = []
+            filtered.map(item => {
+                return (item.type === "player" && findplayer.push(item))
+            })
             this.setState({
-                favItems: filtered
+                favItems: filtered,
+                teams: findteam,
+                players: findplayer
+
             })
         })
     }
-    
-
 
 
     render() {
+
         return (
             <Container>
                 <Row>
@@ -148,33 +173,56 @@ class MyProfile extends Component {
                     <Col className="mb-5 mb-lg-0" lg="3" md="6" style={{ width: '50%' }}>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
                             <Tab eventKey="favorites" title="My Favorites" >
-                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
-                            <Tab eventKey="team" title="My Team" >
-                            {this.state.favItems.map(fav => {
-                                
-                                    return (<tbody>
-                                        <tr>
-                                            <th>
-                                                <img src={fav.imgUrl} alt="img" />
-                                            </th>
-                                            <th>
-                                                {fav.name}
-                                            </th>
-                                            <th>
-                                                <button onClick={() => this.handleFavDelete(fav._id)}>DELETE</button>
-                                            </th>
-                                        </tr>
-                                    </tbody>
-                                    )
-                                
-                                
-                                })
-                                }
-                            </Tab>
-                            <Tab eventKey="players" title="Players" >
-                            </Tab>
-                        </Tabs>
-                                
+                                <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3" style={{ fontSize: '30px' }}>
+                                    <Tab eventKey="team" title="My Team" >
+
+                                        {this.state.teams.map(fav => {
+
+                                            return (<tbody>
+                                                <tr>
+                                                    <th>
+                                                        <img src={fav.imgUrl} alt="img" />
+                                                    </th>
+                                                    <th>
+                                                        {fav.name}
+                                                    </th>
+                                                    <th>
+                                                        <button onClick={() => this.handleFavDelete(fav._id)}>DELETE</button>
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+
+                                            )
+
+
+                                        })
+                                        }
+                                    </Tab>
+                                    <Tab eventKey="players" title="Players" >
+                                        {this.state.players.map(fav => {
+
+                                            return (<tbody>
+                                                <tr>
+                                                    <th>
+                                                        <img src={fav.imgUrl} alt="img" />
+                                                    </th>
+                                                    <th>
+                                                        {fav.name}
+                                                    </th>
+                                                    <th>
+                                                        <button onClick={() => this.handleFavDelete(fav._id)}>DELETE</button>
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+
+                                            )
+
+
+                                        })
+                                        }
+                                    </Tab>
+                                </Tabs>
+
                             </Tab>
                             <Tab eventKey="articles" title="My Articles">
                                 <table>
