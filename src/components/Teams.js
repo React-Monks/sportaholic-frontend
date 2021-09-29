@@ -22,7 +22,7 @@ class Teams extends Component {
     e.preventDefault();
 
     await this.setState({
-      teamName: e.target[0].value,
+      teamName: e.target.teamName.value,
     });
     let config = {
       method: "GET",
@@ -66,11 +66,28 @@ class Teams extends Component {
   render() {
     return (
       <>
-        <form onSubmit={(e) => this.handleTeams(e)}>
-          <input type="text"></input>
-          <input type="submit"></input>
-        </form>
 
+        <div className="login-box">
+          <h2>Team name</h2>
+          <form  onSubmit={(e) => {
+            this.handleTeams(e);
+          }}>
+            <div className="user-box">
+              <input type="text" name="teamName" required />
+              <label>Name</label>
+            </div>
+            
+            <a href="nothinf">
+            <input id="submitBTN" type="submit"/>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              
+            </a>
+            
+          </form>
+        </div>
         {/* --------------------table---------- */}
 
         <Table striped bordered hover variant="dark">

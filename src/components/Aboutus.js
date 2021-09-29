@@ -101,7 +101,7 @@ class Aboutus extends React.Component {
                           href="https://github.com/Anas-Abuhatab"
                           onClick={e => e.preventDefault()}
                         >
-                          <i class={"fa fa-github"} style={{fontSize:28,color:"#FC46AA"}}></i>
+                          <i className={"fa fa-github"} style={{fontSize:28,color:"#FC46AA"}}></i>
 
                         </Button>
 

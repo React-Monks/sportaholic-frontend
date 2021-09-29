@@ -112,7 +112,7 @@ class Football extends Component {
         
         <h3 className="tableID">Latest News</h3>
 
-        <Table className="tableID"  >
+        <table className="tableEdit">
           {this.state.news.map((i) => {
             return (
               <>
@@ -150,28 +150,28 @@ class Football extends Component {
           })}
         
 
-        </Table>
+        </table>
       
 {/* #################################################### */}
 
 
 
 {/* ########################################## */}
-        <div class="login-box">
+        <div className="login-box" style={{marginTop:"22%"}}>
           <h2>Write Article</h2>
           <form  onSubmit={(e) => {
             this.handleArticleSubmit(e);
           }}>
-            <div class="user-box">
+            <div className="user-box">
               <input type="text" name="title" required />
               <label>Title</label>
             </div>
-            <div class="user-box">
+            <div className="user-box">
               <input type="text" name="article" required />
               <label>Article</label>
             </div>
             
-            <a href="nothinf">
+            <a>
             <input id="submitBTN" type="submit"/>
               <span></span>
               <span></span>
