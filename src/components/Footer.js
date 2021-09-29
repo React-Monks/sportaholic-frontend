@@ -8,7 +8,7 @@ class Footer extends Component {
     render() {
         return (
             <div className="footer">
-<div class="wrapper">
+{/* <div class="wrapper">
   <div class="icon facebook">
     <div class="tooltip">Facebook</div>
     <span><i > <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/1200px-Facebook_icon.svg.png"  width="35px" alt="icon"/></i></span>
@@ -29,7 +29,7 @@ class Footer extends Component {
     <div class="tooltip">Youtube</div>
     <span><i class="fab fa-youtube"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/640px-YouTube_full-color_icon_%282017%29.svg.png"  width="35px" alt="icon"/></i></span>
   </div>
-</div>
+</div> */}
             </div>
         )
     }

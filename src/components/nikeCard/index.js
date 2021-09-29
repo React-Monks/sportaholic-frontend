@@ -122,7 +122,7 @@ console.log(props.imgUrl)
               dragElastic={0.12}
               whileTap={{ cursor: "grabbing" }}
             >
-              <img src={props.imgUrl} />
+              <img src={props.imgUrl} alt="" />
             </Shoes>
           </ShoesWrapper>
           <NikeText></NikeText>

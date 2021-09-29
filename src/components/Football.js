@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import {  Col,  Table } from "react-bootstrap";
+
+import { Col, Table } from "react-bootstrap";
+
 
 import "./League.css";
 import styled from "styled-components";
@@ -53,7 +55,7 @@ class Football extends Component {
   componentDidMount = () => {
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=84de0022efa34366b36042c640ef7fd9"
+        `https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=${process.env.REACT_APP_NEWS}`
       )
       .then((res) => {
         this.setState({
@@ -111,7 +113,7 @@ class Football extends Component {
         
         <h3 className="tableID">Latest News</h3>
 
-        <Table className="tableID"  >
+        <table className="tableEdit">
           {this.state.news.map((i) => {
             return (
               <>
@@ -149,23 +151,24 @@ class Football extends Component {
           })}
         
 
-        </Table>
+        </table>
       
 {/* #################################################### */}
 
 
 
 {/* ########################################## */}
-        <div className="login-box">
+        <div className="login-box" style={{marginTop:"22%"}}>
+
           <h2>Write Article</h2>
           <form  onSubmit={(e) => {
             this.handleArticleSubmit(e);
           }}>
-            <div class="user-box">
+            <div className="user-box">
               <input type="text" name="title" required />
               <label>Title</label>
             </div>
-            <div class="user-box">
+            <div className="user-box">
               <input type="text" name="article" required />
               <label>Article</label>
             </div>
