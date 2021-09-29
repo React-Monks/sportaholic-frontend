@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import tennisImg from "./img/tennisnyy-myach-tennis-ball.jpg";
-import footballImg from "./img/wp3616722 (1).png";
-import basketballImg from "./img/36f75d87668f0a3fe0e5ebff7e4e4364.jpg";
-import UFCImg from "./img/images.png";
+import leaguelImg from "./img/wp3616722 (1).png";
+import teamsImg from "./img/1.jpg";
+import playerlImg from "./img/2.png";
+import joinImg from "./img/logo-removebg-preview.png";
 import fitness from "./img/istockphoto-1276373630-1024x1024.jpg";
 import { Card } from "react-bootstrap";
 
@@ -18,7 +18,7 @@ class HomePage extends Component {
             <Card.Link href="/Football">
               <Card.Img
                 variant="top"
-                src={footballImg}
+                src={leaguelImg}
                 className="homepageImgs"
               />
             </Card.Link>
@@ -31,7 +31,7 @@ class HomePage extends Component {
             <Card.Link href="/teams">
               <Card.Img
                 variant="top"
-                src={tennisImg}
+                src={teamsImg}
                 className="homepageImgs"
               />
             </Card.Link>
@@ -44,21 +44,14 @@ class HomePage extends Component {
             <Card.Link href="/players">
               <Card.Img
                 variant="top"
-                src={basketballImg}
+                src={playerlImg}
                 className="homepageImgs"
               />
             </Card.Link>
           </Card>
         </span>
 
-        <span className="homePageSpan">
-          <Card style={{ width: "18rem", margin: "30%" }}>
-            <Card.Title>profile</Card.Title>
-            <Card.Link href="/profile">
-              <Card.Img variant="top" src={UFCImg} className="homepageImgs" />
-            </Card.Link>
-          </Card>
-        </span>
+        
         <div>
           <span id="fitness">
             <h3  style={{ marginLeft: "45%" , fontWeight:"bolder"}}>Fitness</h3>

@@ -161,6 +161,7 @@ class Football extends Component {
         <div className="login-box" style={{marginTop:"22%"}}>
 
           <h2>Write Article</h2>
+          
           <form  onSubmit={(e) => {
             this.handleArticleSubmit(e);
           }}>
