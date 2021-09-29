@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import {  Col,  Table } from "react-bootstrap";
+
+import { Col, Table } from "react-bootstrap";
+
 
 import "./League.css";
 import styled from "styled-components";
@@ -53,7 +55,7 @@ class Football extends Component {
   componentDidMount = () => {
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=84de0022efa34366b36042c640ef7fd9"
+        `https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=${process.env.REACT_APP_NEWS}`
       )
       .then((res) => {
         this.setState({
@@ -170,7 +172,7 @@ class Football extends Component {
               <label>Article</label>
             </div>
             
-            <a>
+            <a href="nothinf">
             <input id="submitBTN" type="submit"/>
               <span></span>
               <span></span>

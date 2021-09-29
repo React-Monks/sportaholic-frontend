@@ -218,7 +218,7 @@ footer{height: 100px;}
   position: relative;
   display: flex;
   /* flex-wrap: wrap; */
-  align-items: end;
+  /* align-items: end; */
   justify-content:left;
   padding-top: 3.5rem;
   /* padding-bottom: .5rem; */
