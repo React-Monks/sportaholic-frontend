@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { Form, Button, Table } from "react-bootstrap";
-// import { Carousel } from "react-bootstrap";
+
 import { Table, Carousel,Col, Container, Row} from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 
@@ -149,8 +148,9 @@ class Teams extends Component {
         {/* ----------------------------------------             */}
       
         <Container>
+
           <Row>
-            <Col xs={12}>
+            <Col xs={9}> */}
               <Carousel>
                 <Carousel.Item>
                   <img
@@ -229,9 +229,80 @@ class Teams extends Component {
                   />
                 </Carousel.Item>
               </Carousel>
-            </Col>
+            {/* </Col>
           </Row>
-        </Container>
+        </Container> */}
+        <form   className="login-box" onSubmit={(e) => this.handleTeams(e)}>
+        <div class="user-box">
+          
+          <input  
+          
+          type="text"></input>
+          </div>
+          <input id="submitBTN"   value="Search" type="submit"></input>
+        </form>
+
+        {/* --------------------table---------- */}
+
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th>Logo</th>
+              <th>Name</th>
+              <th>country</th>
+              <th>Since</th>
+              <th>Stadium capacity</th>
+              <th>City</th>
+              <th>Stadium</th>
+              <th>Stadium Name</th>
+              <th>Favorites</th>
+            </tr>
+          </thead>
+          {this.state.dataTeams.map((i) => {
+            return (
+              <>
+                <tbody>
+                  <tr>
+                    <td>
+                      {" "}
+                      <img
+                        //   className="d-block w-100"
+                        src={i.team.logo}
+                        alt="logo"
+                        width="90"
+                        height="90"
+                      />
+                    </td>
+                    <td>{i.team.name}</td>
+
+                    <td>{i.team.country}</td>
+                    <td>{i.team.founded}</td>
+
+                    <td>{i.venue.capacity}</td>
+                    <td>{i.venue.city}</td>
+                    <td>
+                      {" "}
+                      <img
+                        //   className="d-block w-100"
+                        src={i.venue.image}
+                        alt="logo"
+                        width="90"
+                        height="90"
+                      />
+                    </td>
+                    <td>{i.venue.name}</td>
+                    {" "}
+                    <td><button onClick={() => this.handleCeateFav(i.team.name, i.team.logo)}>Add to favorites</button></td>
+                  </tr>
+                </tbody>
+              </>
+            );
+          })}
+        </Table>
+        <br />
+        {/* ----------------------------------------             */}
+      
+       
 
       </>
     );

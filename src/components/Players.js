@@ -58,6 +58,7 @@ class Players extends Component {
   render() {
     return (
       <>
+
         {/* <form onSubmit={(e) => this.handlePlayers(e)}>
           <input type="text"></input>
           <input type="submit"></input>
@@ -84,6 +85,7 @@ class Players extends Component {
             
           </form>
         </div>
+
         {/* -------------------table */}
 
         <Table striped bordered hover variant="dark">

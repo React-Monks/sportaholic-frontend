@@ -7,9 +7,10 @@ class FootballTable extends Component {
   render() {
     return (
       <>
-        <Form onSubmit={(e) => this.props.handleTodayGames(e)}>
-          <input type='date' />
-          <input type='submit' />
+        <Form   className="login-box" onSubmit={(e) => this.props.handleTodayGames(e)}>
+        <div class="user-box">
+          <input type='date' /></div>
+          <input id="submitBTN" value="Search" type='submit' />
         </Form>
         <Table striped bordered hover variant="dark">
           {(parseInt(this.props.leagueID) === 0) ? '' : (

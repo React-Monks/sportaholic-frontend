@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Col } from 'react-bootstrap';
+
 class Fitness extends Component {
 
     constructor(props) {
@@ -210,6 +211,7 @@ class Fitness extends Component {
 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/CO-Mvpl0QUY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </>
+
         )
     }
 }

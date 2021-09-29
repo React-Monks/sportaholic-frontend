@@ -61,7 +61,7 @@ class HomePage extends Component {
         </span>
         <div>
           <span id="fitness">
-            <h3 style={{ marginLeft: "45%" }}>Fitness</h3>
+            <h3  style={{ marginLeft: "45%" , fontWeight:"bolder"}}>Fitness</h3>
             <a href="/fitness">
               <img src={fitness} className="fitness" alt="" />
             </a>
