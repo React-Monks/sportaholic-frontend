@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { Form, Button, Table } from "react-bootstrap";
-// import { Carousel } from "react-bootstrap";
-import { Table, Carousel,Col, Container, Row} from "react-bootstrap";
+
+import { Table, Carousel, Col, Container, Row } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 
 class Teams extends Component {
@@ -14,7 +13,7 @@ class Teams extends Component {
       leagueID: 0,
       teamName: "",
       news: [],
-      
+
     };
   }
 
@@ -22,7 +21,7 @@ class Teams extends Component {
     e.preventDefault();
 
     await this.setState({
-      teamName: e.target[0].value,
+      teamName: e.target.teamName.value,
     });
     let config = {
       method: "GET",
@@ -55,22 +54,124 @@ class Teams extends Component {
         name: name,
         imgUrl: imgUrl,
         userEmail: this.props.auth0.user.email,
-        type:"team"
+        type: "team"
 
       }
     }
     axios(config)
     console.log(name)
   }
-  
+
   render() {
     return (
       <>
-        <form onSubmit={(e) => this.handleTeams(e)}>
-          <input type="text"></input>
-          <input type="submit"></input>
-        </form>
+ <Container>
 
+<Row>
+  <Col xs={9}>
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.realmadrid.com/StaticFiles/RealMadridResponsive/images/static/og-image.png"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>Real Madrid</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://pbs.twimg.com/media/EWl6qGgXQAAIBHv.jpg"
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h3>Manchester United</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://i2-prod.mirror.co.uk/incoming/article796584.ece/ALTERNATES/s482b/298x198_Liverpool.jpg"
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>liverpool</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      {/* -------------------------- */}
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://img.btolat.com/news/large/249180.jpg"
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>liverpool</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.almrsal.com/wp-content/uploads/2020/10/1-70.jpg"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://arabic.sport360.com/wp-content/uploads/2017/12/Juventus-Logo-20141589.png"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://storage.googleapis.com/jarida-cdn/images/1607275005640810700/1607279110000/640x480.jpg"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.aljazeera.net/wp-content/uploads/2017/12/217a7498-ac7e-4222-a919-ed8f3c326df0.jpeg?resize=686%2C513"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://arabic.sport360.com/wp-content/uploads/2016/07/Borussia-Dortmund-Logo-203366998.jpg"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+    </Carousel>
+    </Col>
+</Row>
+</Container> 
+
+        <div className="login-box" style={{marginTop:"25%"}}>
+          <h2>Team name</h2>
+          <form onSubmit={(e) => {
+            this.handleTeams(e);
+          }}>
+            <div className="user-box">
+              <input type="text" name="teamName" required />
+              <label>Name</label>
+            </div>
+
+            <a href="nothinf">
+              <input id="submitBTN" type="submit" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </a>
+
+          </form>
+        </div>
         {/* --------------------table---------- */}
 
         <Table striped bordered hover variant="dark">
@@ -128,97 +229,9 @@ class Teams extends Component {
             );
           })}
         </Table>
-        <br />
-        {/* ----------------------------------------             */}
-      
-        <Container>
-          <Row>
-            <Col xs={12}>
-              <Carousel>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://www.realmadrid.com/StaticFiles/RealMadridResponsive/images/static/og-image.png"
-                    alt="First slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>Real Madrid</h3>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://pbs.twimg.com/media/EWl6qGgXQAAIBHv.jpg"
-                    alt="Second slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>Manchester United</h3>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://i2-prod.mirror.co.uk/incoming/article796584.ece/ALTERNATES/s482b/298x198_Liverpool.jpg"
-                    alt="Third slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>liverpool</h3>
-                  </Carousel.Caption>
-                </Carousel.Item>
-               {/* -------------------------- */}
-               <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://img.btolat.com/news/large/249180.jpg"
-                    alt="Third slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>liverpool</h3>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://www.almrsal.com/wp-content/uploads/2020/10/1-70.jpg"
-                    alt="Third slide"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://arabic.sport360.com/wp-content/uploads/2017/12/Juventus-Logo-20141589.png"
-                    alt="Third slide"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://storage.googleapis.com/jarida-cdn/images/1607275005640810700/1607279110000/640x480.jpg"
-                    alt="Third slide"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://www.aljazeera.net/wp-content/uploads/2017/12/217a7498-ac7e-4222-a919-ed8f3c326df0.jpeg?resize=686%2C513"
-                    alt="Third slide"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="https://arabic.sport360.com/wp-content/uploads/2016/07/Borussia-Dortmund-Logo-203366998.jpg"
-                    alt="Third slide"
-                  />
-                </Carousel.Item>
-              </Carousel>
-            </Col>
-          </Row>
-        </Container>
-
-      </>
-    );
+            </>
+            );
   }
 }
 
-export default withAuth0(Teams);
+            export default withAuth0(Teams);
