@@ -24,10 +24,6 @@ body {
   margin: 15%;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a1bf46db29cefa50fc91bcb577b9049719f202ae
 
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
 h3 {
@@ -42,18 +38,9 @@ h3 {
   width: 0;
 }
 
-<<<<<<< HEAD
 footer {
   height: 100px;
 }
-=======
-/* 
-.nav{
-  background: url("../img/pexel.jpg");
-} */
-
-
->>>>>>> a1bf46db29cefa50fc91bcb577b9049719f202ae
 
 #header {
   background-image: url("./components/img/young-caucasian-male-football-soccer-player-kicking-ball-goal-mixed-light-dark-wall-concept-healthy-lifestyle-professional-sport-hobby.jpg");
@@ -63,7 +50,6 @@ footer {
   margin-top: -7%;
 }
 
-<<<<<<< HEAD
 image {
   border: none
 }
@@ -237,9 +223,6 @@ width: 400px;
 .btn::before {
   transform: translateX(100%);
 }
-=======
-
->>>>>>> a1bf46db29cefa50fc91bcb577b9049719f202ae
 
 .slider {
   margin-top: 766px;
@@ -248,15 +231,6 @@ width: 400px;
 }
 
 
-<<<<<<< HEAD
-=======
-.carousel {
-  width: 800px;
-  bottom: 161%;
-  position: relative;
-  left: 120%
-}
->>>>>>> a1bf46db29cefa50fc91bcb577b9049719f202ae
 
 /* ---------------------------- */
 
@@ -286,7 +260,6 @@ width: 400px;
   -webkit-tap-highlight-color: transparent;
 }
 
-<<<<<<< HEAD
 html, body {
   height: 100%;
   width: 100%;
@@ -294,8 +267,6 @@ html, body {
   place-items: center;
   background: linear-gradient(315deg, #ffffff, #d7e1ec);
 }
-=======
->>>>>>> a1bf46db29cefa50fc91bcb577b9049719f202ae
 
 .wrapper {
   display: inline-flex;
