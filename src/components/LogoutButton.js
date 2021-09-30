@@ -7,7 +7,7 @@ const LogoutButton = () => {
   return (
     <div id="LogoutBTN">
     <button   className="btn" onClick={() => logout({ returnTo: window.location.origin })}>
-  <a class="effect1" href="#">
+  <a  href={() => false} class="effect1"  >
     Log out
     <span class="bg"></span>
   </a>

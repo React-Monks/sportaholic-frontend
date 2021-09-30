@@ -1,12 +1,8 @@
 
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Col, Row, Nav } from 'react-bootstrap';
-import { Tabs } from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab'
-import TabContent from 'react-bootstrap/TabContent'
-import TabPane from 'react-bootstrap/TabPane'
-import TabContainer from 'react-bootstrap/TabContainer';
+import { Col } from 'react-bootstrap';
+
 
 
 class Fitness extends Component {
@@ -110,7 +106,7 @@ class Fitness extends Component {
                                         <input type="text" name="age" required />
                                         <label>Age</label>
                                     </div>
-                                    <a>
+                                    <a href={() => false}>
                                         <input id="submitBTN" type="submit" />
                                         <span></span>
                                         <span></span>
@@ -157,7 +153,7 @@ class Fitness extends Component {
                                         <input type="text" name="foodElement" required />
                                         <label>Exercise type</label>
                                     </div>
-                                    <a >
+                                    <a href={() => false}>
                                         <input id="submitBTN" type="submit" />
                                         <span></span>
                                         <span></span>

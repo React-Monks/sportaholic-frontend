@@ -80,7 +80,7 @@ class Players extends Component {
         {/* -------------------table */}
 
         <Table striped bordered hover variant="dark">
-          {this.state.dataPlayers.length != 0 &&
+          {this.state.dataPlayers.length !== 0 &&
             <thead>
               <tr>
                 <th></th>

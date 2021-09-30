@@ -162,7 +162,7 @@ class Teams extends Component {
               <label>Name</label>
             </div>
 
-            <a >
+            <a href={() => false}>
               <input id="submitBTN" type="submit" />
               <span></span>
               <span></span>
@@ -176,7 +176,7 @@ class Teams extends Component {
         {/* --------------------table---------- */}
 
         <Table striped bordered hover variant="dark">
-         {this.state.dataTeams.length != 0 &&
+         {this.state.dataTeams.length !== 0 &&
           <thead>
             <tr>
               <th>Logo</th>

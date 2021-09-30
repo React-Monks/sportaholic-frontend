@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavItem } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
-import { Nav, Dropdown } from "react-bootstrap";
+import {  Dropdown } from "react-bootstrap";
 import './Login.scss'
 
 class Header extends Component {

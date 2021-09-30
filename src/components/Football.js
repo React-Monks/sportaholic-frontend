@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import Badge from 'react-bootstrap/Badge'
-import { Col, Table } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 
 import "./League.css";
@@ -174,7 +173,7 @@ class Football extends Component {
               <label>Article</label>
             </div>
             
-            <a>
+            <a href={() => false}>
             <input id="submitBTN" type="submit"/>
               <span></span>
               <span></span>
