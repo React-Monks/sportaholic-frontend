@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-
-import { Col, Table } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 
 import "./League.css";
@@ -111,7 +110,7 @@ class Football extends Component {
 
 
         
-        <h3 className="tableID">Latest News</h3>
+        <h3 className="tableID">Lastest News</h3>
 
         <table className="tableEdit">
           {this.state.news.map((i) => {
@@ -137,9 +136,9 @@ class Football extends Component {
           })}
         
         <tr style={{width:"100%"}}>
-          <td colSpan="2">
-        <h2>Users articles</h2>
-        </td>
+          {/* <td colSpan="2">
+         <h2> <Badge bg="secondary">My articles</Badge></h2> 
+        </td> */}
         </tr>
           {this.state.data.map((article) => {
             return (
@@ -174,7 +173,7 @@ class Football extends Component {
               <label>Article</label>
             </div>
             
-            <a>
+            <a href={() => false}>
             <input id="submitBTN" type="submit"/>
               <span></span>
               <span></span>
