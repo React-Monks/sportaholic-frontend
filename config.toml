@@ -1,0 +1,5 @@
+baseurl ="https://quizzical-dubinsky-5d2f97.netlify.app"
+
+title = "React App"
+
+relativeURLs = true
