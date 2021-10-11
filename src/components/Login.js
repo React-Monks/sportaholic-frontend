@@ -12,15 +12,15 @@ class Login extends Component {
         <Container>
           <Row>
             <Col xs={6}>
-              <Carousel style={{ color: " #9e9e9e" }}>
+              <Carousel className="carouselLog" style={{ color: " #9e9e9e" }}>
               
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    // src="https://images.unsplash.com/photo-1580153111806-5007b971dfe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                    alt="Third slide"
-                    width="90"
-                    height="400"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pure_black_wallpaper.jpg/338px-Pure_black_wallpaper.jpg"     
+               alt="Third slide"
+                    width="20px"
+                    height="20px"
                     background-color="#E6DEDD"
                   />
 
@@ -37,8 +37,7 @@ class Login extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    // src="https://images.unsplash.com/photo-1580153111806-5007b971dfe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                    alt="Third slide"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pure_black_wallpaper.jpg/338px-Pure_black_wallpaper.jpg"                    alt="Third slide"
                     width="90"
                     height="400"
                     background-color="#E6DEDD"
@@ -56,7 +55,7 @@ class Login extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    // src="https://images.unsplash.com/photo-1580153111806-5007b971dfe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pure_black_wallpaper.jpg/338px-Pure_black_wallpaper.jpg"     
                     alt="Third slide"
                     width="90"
                     height="400"
@@ -74,8 +73,7 @@ class Login extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    // src="https://images.unsplash.com/photo-1580153111806-5007b971dfe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                    alt="Third slide"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pure_black_wallpaper.jpg/338px-Pure_black_wallpaper.jpg"                         alt="Third slide"
                     width="90"
                     height="400"
                     background-color="#E6DEDD"
@@ -93,8 +91,7 @@ class Login extends Component {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    // src="https://images.unsplash.com/photo-1580153111806-5007b971dfe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                    alt="Third slide"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Pure_black_wallpaper.jpg/338px-Pure_black_wallpaper.jpg"                         alt="Third slide"
                     width="90"
                     height="400"
                     background-color="#E6DEDD"

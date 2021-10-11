@@ -66,7 +66,7 @@ class Teams extends Component {
     console.log(this.state.dataTeams);
     return (
       <>
-        <Container>
+        <Container className="conTeams">
 
           <Row>
             <Col xs={9}>
