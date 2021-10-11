@@ -86,6 +86,14 @@ DataBase
 
 MongoDB
 
+------------------------------------
+
+# Live project page
+
+https://sportaholic.netlify.app
+
+-------------------------
+
 # Resources:
 
 1. https://www.youtube.com/watch?v=cPKiilXlHAQ (css card)
